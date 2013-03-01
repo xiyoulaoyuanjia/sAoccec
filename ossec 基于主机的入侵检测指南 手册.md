@@ -7,7 +7,7 @@ ossec 基于主机的入侵检测指南 手册
 * [前沿]()
 * [第一章 ossec 即日开始]()
     * [介绍。。]()
-    * [关于入侵检测的介绍]()
+    * [关于入侵检测的介绍](#1.2.0)
         * [基于网络的入侵检测]()
         * [基于主机的入侵检测]()
             *   [验证文件完整性]()
@@ -123,4 +123,62 @@ ossec 基于主机的入侵检测指南 手册
 * [附录C 基于主机的IDS的Rootkit 检测]()
 * [附录D The OSSEC VMware Guest Image]()
 * 
+
+
+
+
+<h2 id="1.2.0">Introducing Intrusion Detection(关于入侵检测的介绍)</h2>
+
+Have you ever wondered what was happening on your network at any given time? 
+
+_在某个时间你是否想过你的网络发生了什么事情。。_
+
+What about the type of traffic trying to get to a server on your network? 
+
+_某种特殊的流量试图通过你的网络到达服务器？_
+
+Intrusion detection is the act of detecting events that have been deemed inappropriate or unwelcome by the business,
+organizational unit, department, or group. 
+
+_入侵检测被商业、机构单位、部门、组织用来检测那些不是很合适或者令人讨厌的行为事件_
+
+This can be anything from the emailing of company
+secrets to a competitor, to malicious attacks from a host on the Internet, to the viewing of
+inappropriate Web content during your lunch break.
+
+_当然这些行为事件包括很多。从发送商业机密到竞争对手的邮件 到来自互联网主机的破坏攻击,再到在你午休都偷看私人网络内容_
+
+Intrusion detection can be performed manually, by inspecting network traffic and logs from
+access resources, or automatically, using tools. 
+
+_入侵检测可以手动或者通过工具自动的检测网络流量特性与访问主机而产生的日志文件_
+
+A tools used to automate the processing of intrusion-related information is typically classified as an intrusion detection system (IDS).
+
+_能自动处理与入侵检测相关信息的工具可以称为入侵检测系统_
+
+Before understanding how the Open Source Security (OSSEC) host intrusion detection
+system (HIDS) works, we should first review the differences between an HIDS and a network
+intrusion detection system (NIDS).
+
+_在了解开源软件主机入侵检测系统(ossec)如何工作之前。我们最好能先来看下 主机入侵检测hids与网络入侵检测nids的区别._
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

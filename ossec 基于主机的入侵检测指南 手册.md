@@ -172,10 +172,6 @@ When you hear the term “intrusion detection system,” or “IDS,” you proba
 
 _当你听到ids或者入侵检测时 你第一反应应该时NIDS_
 
-
-
-
-
 Network intrusion detection systems have become widely used over the past decade
 because of the impressive capability to provide a granular view of what is happening on your
 network. 
@@ -202,6 +198,15 @@ device that sits between two interfaces and mirrors the traffic that passes betw
 
 _或者连接到可以连接到网络并且监控网络上的流量的网络tap上._
 
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6NHFZaWtUellwYjQ)
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6d01Mbnl5dm8xUnM)
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6d3ByYV9jZHJWbTg)
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6SXJqZWg3QmUxblU)
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6SzJBaUF6aHFKQVk)
 
 
 NIDS is typically deployed to passively monitor a sensitive segment of your network,

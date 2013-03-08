@@ -57,11 +57,11 @@ int main(int argc, char ** argv)
             i++;
         }
 
-        OS_ClearNode(node);
+//        OS_ClearNode(node);
 
         node = NULL;
 
-        OS_ClearXML(&xml);
+//        OS_ClearXML(&xml);
     }
     return(0);
 }

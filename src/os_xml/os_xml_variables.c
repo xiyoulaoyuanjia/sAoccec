@@ -20,6 +20,9 @@
 
 #include "os_xml.h"
 
+/**
+ * xml 变量好像没什么用。。。
+ */
 int OS_ApplyVariables(OS_XML *_lxml)
 {
     int i = 0,j = 0,s = 0;
@@ -117,6 +120,7 @@ int OS_ApplyVariables(OS_XML *_lxml)
             (_lxml->ct[i]))
         {
             int tp = 0,init = 0,final = 0;
+ //           int tp = 0,init = 0;
             char *p = NULL;
             char *p2= NULL;
             char lvar[256]; /* MAX Var size */

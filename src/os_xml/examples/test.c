@@ -4,10 +4,16 @@
 
 #include "os_xml.h"
 
+
+
 int main(int argc, char ** argv)
 {
     int i = 0;
     OS_XML xml;
+
+/**
+ *  XML_NODE ** xml_node
+ */
     XML_NODE node = NULL;
 
 
@@ -26,17 +32,57 @@ int main(int argc, char ** argv)
         return(1);
     }
 
+/*
+    printf("++++%d++++\n",xml.cur);
+    printf("++++%d++++\n",xml.fol);
+
+	int j=0;
+
+	for(;i<xml.cur;i++)
+	{
+
+			printf("++++%d++++\n",xml.tp[i]);
+			printf("++++%d++++\n",xml.rl[i]);
+			printf("++++%d++++\n",xml.ck[i]);
+			printf("++++%d++++\n",xml.ln[i]);
+			j=i+1;
+
+			printf("+content+++%s++++\n",xml.ct[i]);
+			printf("+elementOrattribute+++%s++++\n",xml.el[i]);
+			printf("**************************\n");
+
+*/
+
+/*
+			for(;j<xml.cur;j++)
+			{
+
+				if(xml.rl[j]==i)
+				{
+					
+						printf("++++%s++++\n",xml.ct[i][j]);
+						printf("++++%s++++\n",xml.el[i][j]);
+
+				}
+
+			}	
+
+*/
+
+
+	}		
+
     if(OS_ApplyVariables(&xml) != 0)
     {
-        printf("OS_ReadXML error: Applying variables: %s\n", xml.err);
-        return(1);
+	    printf("OS_ReadXML error: Applying variables: %s\n", xml.err);
+	    return(1);
     }
 
     /* Getting all nodes */
     node = OS_GetElementsbyNode(&xml,NULL);
     if(node == NULL)
     {
-        printf("OS_GetElementsbyNode error: %s, line: %d\n", xml.err, xml.err_line);
+	    printf("OS_GetElementsbyNode error: %s, line: %d\n", xml.err, xml.err_line);
         return(1);
     }
 

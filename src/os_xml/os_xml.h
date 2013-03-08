@@ -29,7 +29,7 @@
 #endif /* XML_VAR */
 
 /**
- *  xml 的类型  包含有 elem 与 attr
+ *  xml 的类型  包含有 elem 与 attr 变量
  */
 #define XML_ELEM                101
 #define XML_ATTR                102
@@ -38,7 +38,13 @@
 /* XML Node structure */
 typedef struct _xml_node
 {
+/**
+ * key 存放 父节点下标
+ */
     int key;
+/**
+ *  line 设置没有用?
+ */
     int line;
     char *element;
     char *content;
@@ -66,7 +72,7 @@ typedef struct _OS_XML
  *  el element或者attribute的名称 
  */
     int *tp;		/* Item type	*/
- //  rl xml 关系 把 xml看成树结构 记录父节点的行号??? 
+ //  层次关系  第一层为 0 下一层为1  依次类推 
     int *rl;		/* Relation in the XML */
  //  ck 判断item 是 closed的吗
     int *ck;		/* If the item was closed or not */

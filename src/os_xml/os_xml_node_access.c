@@ -24,6 +24,8 @@
 
 /* OS_ClearNode v0,1
  * Clear the Node structure
+ *
+ * 释放 node 节点 这个很重要
  */
 void OS_ClearNode(xml_node **node)
 {
@@ -77,12 +79,23 @@ void OS_ClearNode(xml_node **node)
 
 /** xml_node **OS_GetElementsbyNode(OS_XML *_lxml, xml_node *node)
  * Get the elements by node.
+ *
+ * 通过node获得其所有子节点
+ * 当然 node为null 表示第一个根节点的子节点
+ *
  */
 xml_node **OS_GetElementsbyNode(OS_XML *_lxml, xml_node *node)
 {
+/**
+ * i 表示 _lxml->rl 的开始的下标
+ * j 表示 父节点的下标数
+ */
+
     int i,j,k=0;
     xml_node **ret=NULL;
-
+/**
+ * 可以看成查找根节点后的第一层节点
+ */
     if(node == NULL)
     {
         j = -1;
@@ -90,6 +103,9 @@ xml_node **OS_GetElementsbyNode(OS_XML *_lxml, xml_node *node)
     }
     else
     {
+/**
+ *  更改开始查找范围
+ */
         i = node->key;
         j = _lxml->rl[i++];
     }
@@ -97,8 +113,16 @@ xml_node **OS_GetElementsbyNode(OS_XML *_lxml, xml_node *node)
 
     for(;i<_lxml->cur;i++)
     {
+/**
+ *  去除 attribute 与 变量
+ *
+ */
         if(_lxml->tp[i] == XML_ELEM)
         {
+/**
+ *  查找父节点为 j+1 与 内容不为空的 element
+ *
+ */
             if((_lxml->rl[i] == j+1) && (_lxml->el[i] != NULL))
             {
                 int l=i+1;

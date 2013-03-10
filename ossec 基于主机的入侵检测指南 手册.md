@@ -294,6 +294,246 @@ _在最后目的地(被攻击的电脑上)检测到这些攻击可以减轻之�
 
 
 
+**Host-Based Intrusion Detection**
+
+**_基于主机的入侵检测_**
+
+An HIDS detects events on a server or workstation and can generate alerts similar to an
+NIDS. 
+
+_HIDS在服务器或者工作站产生的警告信息与NIDS相同_
+
+An HIDS, however, is able to inspect the full communications stream.
+
+_但是，HIDS去可以检测到网络上所有的会话数据包_
+ 
+NIDS evasion techniques, such as fragmentation attacks or session splicing, do not apply because the HIDS is able to inspect the fully recombined session as it is presented to the operating system.
+
+_由于片段储存、会话分割这些抵抗NIDS检测的技术是完全暴露在操作系统上的(会产生相应的日志信息),所以HIDS可以检测到完整的会话信息。也正是这样这些技术也就没有用武之地了。_
+
+Encrypted communications can be monitored because your HIDS inspection can look at
+the traffic before it is encrypted. 
+
+_由于HIDS可以在会话加密之前就查看，所以加密会话也是可以监视到的。_
+
+This means that HIDS signatures will still be able to match against common attacks and not be blinded by encryption.
+
+_这也就意味着HIDS 的特征库可以有效的抵抗常见的攻击，即使是加密的。_
+
+An HIDS is also capable of performing additional system level checks that only IDS software
+installed on a host machine can do, such as file integrity checking, registry monitoring, log
+analysis, rootkit detection, and active response.
+
+_另外,HIDS 也可以实现向安装到主机的IDS才可以做的一样系统级别的检测，例如 完整性检测、监控注册表、日志分析、rootkit 检测、和联动机制_
+
+
+**File Integrity Checking**
+
+**_文件完整性检测_**
+
+Every file on an operating system generates a unique digital fingerprint, also known as a
+cryptographic hash.
+
+_利用常见的hash加密，操作系统中的每一个文件都可以产生一个唯一的 数字指纹_
+
+This fingerprint is generated based on the name and contents of the file (Figure 1.6).
+
+_根据文件的名字与内容可以产生这样的指纹，例如图1.6所示_
+
+ An HIDS can monitor important files to detect changes in this fingerprint when someone, or something, modifies the contents of the file or replaces the file with a completely different version of the file.
+
+_当某人或者其它的什么修改文件的内容或者使用完全不同的版本替换了文件的内容时，HIDS可以通过检测到指纹的变化来监视重要的文件的这些变化。_
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6U0hLQXZIWUsxaEU)
+
+**Registry Monitoring**
+
+**_注册表监控_**
+
+The system registry is a directory listing of all hardware and software settings, operating system
+conﬁgurations, and users, groups, and preferences on a Microsoft Windows system. 
+
+_系统注册表是一个用来存放软硬件的设置、系统配置、windows系统的用户、组和个性化设置的目录_
+
+Changes made by users and administrators to the system are recorded in the system registry keys so that the changes are saved when the user logs out or the system is rebooted. 
+
+_因为用户或者系统管理员对系统所做的更改都会记录到注册表的key中,所以当用户或系统管理员注销或者重启的时候这些更改都会被保存下来。_
+
+The registry also allows you to look at how the system kernel interacts with hardware and software.
+
+_当然注册表也可以帮你观察系统内核是如何与软硬件联系的_
+
+An HIDS can watch for these changes to important registry keys to ensure that a user
+or application isn’t installing a new or modifying an existing program with malicious intent.
+
+_HIDS可以用来观察那些重要的注册表的key的改变，以此来确保用户没有恶意的安装或者修改软件_
+
+For example, a password management utility can be replaced with a modiﬁed executable
+and the registry key changed to point to the malicious copy (Figure 1.7).
+
+_例如：注册表的key值的改变可以反应电脑的密码管理工具被可执行程序替换这个恶意的行为_
+
+
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6U0hLQXZIWUsxaEU)
+
+**Rootkit Detection**
+
+**_Rootkit  检测_**
+
+A rootkit is a program developed to gain covert control over an operating system while hiding
+from and interacting with the system on which it is installed. 
+
+_rootkit 是一种被设计用来隐藏在操作系统伺机控制系统或者与安装的系统交互的程序_
+
+An installed rootkit can hide services, processes, ports, ﬁles, directories, and registry keys from the rest of the operating system and from the user.
+
+_已经安装的rootkit可以向用户与系统隐藏服务、进程、端口、目录、注册表等项_
+
+
+
+**Active Response**
+
+**_联动反应_**
+
+Active response allows you to automatically execute commands or responses when a speciﬁc
+event or set of events is triggered. 
+
+_当特别的事件或者事件集被触发时,联动反应自动的执行命令或者反应_
+
+For example, look at Figure 1.8. An attacker launches an attack against your organization’s mail server (1). 
+_例如：如果1.8所示,攻击者向你的组织的邮件服务器发动了攻击_
+
+The attack then passes through your ﬁrewall (2), and ﬁnally, transparently, passes by your deployed network tap that inspects all trafﬁc destined for your mail server (3). 
+
+_攻击先通过防火墙,最后通过了部署在邮件服务器上用来检测所有通过的流量的网络trap_
+
+
+Your NIDS happens to have a signature for this particular attack. 
+
+_NIDS 对于这种攻击有相应的特征库_
+
+The NIDS active response service sends a command to your ﬁrewall (4) to reset the attacker’s session and place a rule blocking that host. 
+
+_这样，NIDS的联动反应机制就会向防火墙发送命令停止会话并加入相应的策略去阻止这台主机的通过防火墙_
+
+When the attacker, whose connection has been reset, tries to initiate the attack again (5), the attacker is blocked.
+
+_当攻击者的连接会话被阻止，他会在去尝试很多次，而由于我们已经修改了防火墙的策略(阻止其ip或者host通过)所以攻击者会被阻止_
+
+
+The beneﬁts of active response are enormous, but also risky. 
+
+_联动反应的好处与风险是同时存在的。_
+
+For example, legitimate trafﬁc might generate a false positive and block a legitimate user/host if the rules are poorly designed. 
+
+_例如、当策略指定的不恰当时,对于合法的流量可能产生错误的判断从而阻止合法的用户与主机通过防火墙_
+
+If an attacker knows that your HIDS blocks a certain trafﬁc signature, the attacker
+could spoof IP addresses of critical servers in your infrastructure to deny you access. 
+
+当然如果攻击者知道你的HIDS的基于某个流量特征库产生相应的策略去阻止这样的ip或者host通过,攻击者就可以伪造你的设备中重要的一些服务器的ip地址去阻止你的访问
+
+
+This is essentially a DoS attack that prevents your host from interacting with that IP address.
+
+_这实际山就是一种阻止你的主机访问一些ip地址的拒绝服务攻击_
+
+**Introducing OSSEC**
+
+**_OSSEC 简介_ **
+
+OSSEC is a scalable, multiplatform, open source HIDS with more than 5,000 downloads
+each month. 
+
+_ossec 是一个可扩展的、跨平台的、每个月超过5000的下载量的开源HIDS_
+
+It has a powerful correlation and analysis engine, log analysis integration, ﬁle
+integrity checking, Windows registry monitoring, centralized policy enforcement, rootkit
+detection, real-time alerting, and active response. 
+
+_ossec具有强大的关联分析引擎、日志分析、文件完整性检测、windows注册表监控、集中的策略执行与实时的关联反应的特点。_
+
+In addition to being deployed as an HIDS,it is commonly used strictly as a log analysis tool, monitoring and analyzing ﬁrewalls, IDSs,Web servers, and authentication logs. 
+
+_另外ossec通常作为HIDS被部署。这其中应用较多的是作为一种日志分析工具,监控与分析防火墙、IDS系列、web服务器、审计等的日志_
+
+OSSEC runs on most operating systems, includingLinux, OpenBSD, FreeBSD, Mac OS X, Sun Solaris, and Microsoft Windows.
+
+_ossec可以运行在大多数操作系统上面,这其中包括linux、OpenBSD、FreeBSD、Mac OS X、Sun Solaris, and Microsoft Windows 等系统 _
+
+OSSEC is free software and will remain so in the future.
+
+_OSSEC 不管是在现在或者将来都是自由软件_
+
+ You can redistribute it and/or modify it under the terms of the GNU General Public License (version 3) as published by the Free Software Foundation (FSF). 
+
+_你可以在FSF发布的GNU GPL3的协议条款下，自由的发布或者修改ossec_
+ISPs, universities, governments, and large corporate data centers are using OSSEC as their main HIDS solution.
+
+_许多ISP,大学，机构，大量的公司数据中心应用OSSEC作为它们的主要的HIDS的解决方案_
+
+The project has contributors from all over the globe and a quarterly release schedule
+for major ﬁxes, enhancements, and new features. 
+
+_该项目的代码贡献者来自世界各地，并且每一个季度都会发布一些重要的补丁、与新功能_
+
+Bugs and feature requests can be sent through the OSSEC bug submission page (www.ossec.net/bugs/) or OSSEC mailing lists(www.ossec.net/main/support/). 
+
+_有关bug与功能的意见可以发送到OSSEC的bug提交页面(www.ossec.net/bugs/)或者OSSEC的邮件列表(www.ossec.net/main/support/)_
+
+We will do our best to solve the submitted requests.
+
+_我们会尽力去解决这些提交请求的。_
+
+If you are interested in being a part of this project, the OSSEC team is always open to
+new contributors. 
+
+_当然如果你乐于称为我们组织的一员，OSSEC团队的大门向你时刻敞开着。_
+
+The easiest way to get involved with OSSEC is by helping to test the
+product. 
+
+_另外，最简单容易的参与OSSEC的方式还是帮助我们测试这款软件_
+
+The OSSEC team is always releasing beta versions and requires good quality control
+on every supported version before public release. 
+
+_OSSEC 团队总是会先发布beta测试版本并且在正式的版本发布之前总是会进行高质量的测试_
+
+
+To get involved in the development side you must know C and be willing to take some time (actually quite some time) to understand how the internals work.
+
+_如果你想参加到OSSEC的开发那么你必须要懂C语言并且乐于花费相当长的时间(事实上确实是相当长的时间)去学习网络方面的知识_
+
+**Planning Your Deployment**
+
+**_考虑部署你的OSSEC_**
+
+Before starting your OSSEC HIDS installation you must know the differences between the
+installation types and know how plan your deployment. 
+
+_在考虑开始你的OSSEC的安装之前你必须先知道不同的安装类型的区别并且知道如何部署_
+
+The OSSEC HIDS can be installed on one system, on multiple systems to provide protection for a large network, or on a few systems with the plan to scale the deployment later to secure your entire organization.
+
+_OSSEC HIDS可以安装到一个系统上去为网络上大量的其它多个系统提供保护，也可以安装到几个系统上去为整个组织提供安全保护_
+
+We will discuss three OSSEC installation types to help you understand how to deploy
+the OSSEC HIDS in your environment:
+
+>* Local installation: Used to secure and protect a single host
+>* Agent installation: Used to secure and protect hosts while reporting back to a
+   central OSSEC server
+>* Server installation: Used to aggregate information from deployed OSSEC agents
+   and collect syslog events from third-party devices
+
+_下来我们将要讨论OSSEC的各种不同的安装类型的区别用来帮你将它部署到你的环境中：_
+
+>* 本地安装:用来保护单个主机的安全
+>* 客户端安装:用来保护主机的全员并将获取的报告数据发回远端的OSSEC服务器
+>* 服务器安装:用于收集汇总分析来自各个部署的OSSEC客户端与第三方设备收集的Syslog日志信息
+
 
 
 

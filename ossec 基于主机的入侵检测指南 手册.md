@@ -344,7 +344,7 @@ _根据文件的名字与内容可以产生这样的指纹，例如图1.6所示_
 
 _当某人或者其它的什么修改文件的内容或者使用完全不同的版本替换了文件的内容时，HIDS可以通过检测到指纹的变化来监视重要的文件的这些变化。_
 
-![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6U0hLQXZIWUsxaEU)
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6dDdwUEFLZGtLRDA)
 
 **Registry Monitoring**
 
@@ -374,7 +374,7 @@ and the registry key changed to point to the malicious copy (Figure 1.7).
 _例如：注册表的key值的改变可以反应电脑的密码管理工具被可执行程序替换这个恶意的行为_
 
 
-![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6U0hLQXZIWUsxaEU)
+![](https://drive.google.com/uc?export=view&id=0B_kkWa4qHwL6d2Z2dVJwTzJxaW8)
 
 **Rootkit Detection**
 

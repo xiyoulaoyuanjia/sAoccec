@@ -537,6 +537,56 @@ _下来我们将要讨论OSSEC的各种不同的安装类型的区别用来帮�
 
 
 
+******
+
+
+**_Appendix A_**
+
+**_Log Data Mining_**
+
+>* Solutions in this chapter:
+
+>>* Introduction
+>>* Data Mining Intro
+>>* Log Mining Intro
+>>* Log Mining Requirements
+>>* What We Mine For?
+>>* Deeper into Interesting
+>>* Conclusion
+
+**_附录A_**
+
+**_日志数据挖掘_**
+>* 本章主要内容：
+
+>*  1.介绍
+>*  2.数据挖掘介绍
+>*  3.日志挖掘介绍
+>*  4.日志挖掘需求
+>*  5.数据挖掘的目的
+>*  6.深入理解其有趣性
+>*  7.总结
+
+
+Introduction
+A vast majority of log analysis techniques required that an analyst know something specific about what he is looking for in the logs. For example, he might “scan” the server logs for “known bad” log ( just as OSSEC does!) records that indicate attacks, exploits, server failures, or whatever other infraction of interest by using string matching or regular expressions. One can observe that it requires significant domain knowledge; in the preceding case,expertise in security and specific type of logs available for analysis on all stages of the log analysis process, from reviewing the data to running queries and searches all the way to interpreting the results to acting on the conclusions. In other words, you have to know what questions to ask before you get the answer you want—a tricky proposition at best. In addition, it requires an immense amount of patience to merely start the task, since one can be going through logs for a long time without finding the aberrant line or a group of lines; or, it might not even be there.
+
+
+_绝大部分日志分析技术都要求分析师知道他正在查找的相关日志的一些特殊信息。例如，一个分析师会通过字符串匹配或者正则表达式在服务器日志记录中浏览预先定义好的错误日志记录（就像OSSEC一样），而这些错误日志记录可以是表示攻击、开发、服务失败或者其他任何对服务不利信息。通过前面的例子，我们注意到，在日志分析的整个阶段，为了根据结果解释结果，从数据回顾到运行查询和搜索，我们都需要有重要的领域知识、安全专业知识以及特殊的日志记录信息。也就是说，在你想得到你想要的答案之前你最好先知道你要问的问题 —— 一个复杂的命题。另外，仅仅是开始日志分析任务就需要巨大的耐心，因为你可能处理日志很长时间了也没发现一行异常或者一组异常，甚至异常根本就不在那。_
+
+
+In this appendix, we describe methods for discovering interesting patterns in log files for security without specifically knowing what we look for and thus without the onerous “patience requirement” and the expensive “expertise requirements” on all analysis stages. We review some practical results of such methods, demonstrate the tools, and discuss how they can be used in various scenarios that occur in the process of maintaining security and availability of IT operation as well as assisting with compliance initiatives. 
+
+_在本附录中，我们将介绍，不明确知道我们要查找的信息条件下，在安全日志文件中查找我们感兴趣模块的一系列方法。由于不明确要查找的信息，在日志分析的各个阶段也就不用繁重的“耐心要求”和昂贵的“专业要求”。同时，我们也回顾了这些方法的实践结果，介绍了工具，并讨论了这些方法在维持安全、IT操作的可行性以及协助合规计划过程中出现的各种不同场景中的应用。_
+
+
+Since the techniques we will cover are similar in many regards to data mining, we
+need to step back and provide a brief data mining overview for those readers not familiar with it.
+
+
+
+
+
 
 
 

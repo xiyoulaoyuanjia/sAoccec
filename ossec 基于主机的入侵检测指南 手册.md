@@ -536,6 +536,461 @@ _下来我们将要讨论OSSEC的各种不同的安装类型的区别用来帮�
 
 
 
+**Local Installation**
+
+**_本地安装_**
+
+The Local installation type is recommended if you plan to install the OSSEC HIDS on
+only one system, such as a personal laptop, workstation, or single server. 
+
+_如果你计划将OSSEC HIDS 安装到单个系统中、例如个人电脑、工作站、或者单个服务器中，那么这种方式是推荐的安装方式_
+
+However, if you are administering a network where you have more than one system to secure and monitor, you should consider using the Agent/Server Installation types.
+
+_但是，如果你需要管理的网络中有多余1个的系统需要监控保证其安全。那么我们还是推荐你选择客户端/服务器这种安装方式_
+
+A Local installation is easier to manage and can be customized for the system on which it is installed. 
+
+_本地安装这种方式便于管理与(被安装的)系统定制_
+
+This installation also combines all the functionality of the OSSEC HIDS software,
+including agent and server functionality, on one system (Figure 1.9). 
+
+_这种安装方式可以包含了OSSEC HIDS 软件的客户端与服务器的所有功能在一个系统上面(如果1.9)_
+
+
+![](http://vdisk-thumb-3.wcdn.cn/frame.1024x768/data.vdisk.me/55890007/f4b9515be2ff7c6c862e90e69e5d983a9676955a?ip=1363191600,10.75.7.25&ssig=lkmS04pScM&Expires=1363190400&KID=sae,l30zoo1wmz)
+
+
+The only downside to a Local installation is if you decide later that you want to send your alerts to a central OSSEC server. 
+
+_本地化安装的唯一不好的地方就是当你安装后你又想把你的警告信息发送到OSSEC服务器上的时候会遇到一些麻烦_
+
+To do so, you will have to uninstall the Local installation and run an Agent installation.
+
+_如果你必须要这么做的化，那么你必须把本地化安装卸载了之后然后在重新已客户端的方式安装才行_
+
+**_Agent Installation_**
+
+**_客户端安装_**
+
+
+The Agent installation type is recommended if you plan to deploy the OSSEC HIDS on
+several systems in your organization. 
+
+_当你计划把OSSEC HIDS 安装到机构上的许多系统上的时候,客户端方式安装是被推荐的一种安装方式_
+
+This installation type allows you to deploy the security and protection offered by OSSEC on the host of your choosing and centralizes your information by sending alerts back to a single OSSEC server. 
+
+_这种安装方式允许你选择一台主机部署OSSEC并将其它的主机的日志警告信息发回到这台主机上去集中处理与分析_
+
+The Agent installation eliminates the overhead of logging on your deployed agent and ensures that generated alerts are not kept on the system. 
+
+__
+
+Figure 1.10 shows the Agent role in a typical Agent/Server type deployment.
+
+_图10给出了一个典型的服务器/客户端 类型的部署中客户端的作用_
+
+**Server Installation**
+
+**_服务器安装_**
+
+The Server installation type is recommended if you already have multiple Agent installations
+deployed throughout your organization and must collect the host-generated alerts. 
+
+_当你已经在组织系统上部署了许多的以客户端安装的OSSEC时并且需要收集那些主机的警告时，这种服务器安装方式是最恰当的安装了_
+
+The role of an OSSEC server is to collect all alerts from deployed Agent installations and provide an overall view of what is being reported by all deployed Agent installations (Figure 1.10).
+
+_OSSEC 服务器的作用是收集来自部署的客户端安装的收集到的所有警告信息并且统筹分析这些警告信息对于这些客户端安装的系统的危害程度(如图 1.10 所示)_
+
+![](http://vdisk-thumb-1.wcdn.cn/frame.1024x768/data.vdisk.me/55890007/c794e856fbf6226c104af440db97a26274214f34?ip=1363191600,10.75.7.27&ssig=zFrNs5tNn7&Expires=1363190400&KID=sae,l30zoo1wmz)
+
+
+Consider the following situation.
+
+_考虑以下这种情景:_
+
+You check your assigned issues in the ticketing system and notice that three users have logged issues that morning indicating that their workstations are running slower than usual. 
+
+_你从你的ticketing系统上面查看分配的问题中发现有3个用户的工作站系统运行的比平时要慢许多的问题_
+
+The users also indicate that they can hear the computer hard disks working very hard, when they are not doing anything on the system.
+
+_另外用户反应他们并没有在系统中有任何操作的时候但是系统的硬盘却飞速的转动着。_
+
+ You decide to walk down and look at the first computer of the first user who reported the issue. 
+
+_你决定去第一个反应这些问题的用户的电脑上看看。_
+
+After reviewing the OSSEC logs on the system, you notice that a rootkit was detected at 3 a.m.
+
+_看完在电脑上的OSSEC 的日志之后，你发现在3点的时候有一个rootkit被检测到了_
+
+that morning:
+Received From: rootcheck
+Rule: 14 fired (level 8) -> “Rootkit detection engine message’ ”
+Portion of the log(s):
+Rootkit ‘t0rn’ detected by the presence of file ‘/lib/libproc.a’.
+
+
+After reading this information, alarms go off and questions start to go through your
+mind:
+
+_阅读完此消息后，警告已经消除了，但是许多的疑问开始在你的脑子掠过_
+
+>* “Is this rootkit installed on the other two workstations that reported problems this
+     morning?”
+>* “How many other systems has this rootkit been installed on?”
+>* “Were the rootkits all installed last night, or have these rootkits been installed over
+     time on various systems?”
+>*  “Is this rootkit only installed on workstations, or has it also been installed on any
+     critical systems?”
+>* “Should I begin handling this incident on this workstation, or should I check the
+     other workstations first?”
+
+>* 在另外两台今天早上预报问题的工作站是否也被安装了rootkit呢？
+>* 还有多少种系统被安装了rootkit了？
+>* 这个rootkit是昨天晚上rootkit还是已经在多个系统上安装了很长时间了。
+>* 这种rookit只是在安装在工作站或者这种重要的系统上面吗？
+>* 我是先处理这台电脑上的问题还是先看看另外两台？
+
+
+If OSSEC agents were installed on all these systems, instead of Local OSSEC installations,
+you would have been able to first check the OSSEC server before leaving your desk.
+
+_如果我们在这些系统上面安装的是 客户端模式的OSSEC 而不是本地话的OSSEC 安装。那么你应该在离开桌子之前先查看OSSEC 服务器的分析_
+
+ This initial check would have allowed you to see if any alerts, such as those generated by the installation of a rootkit, were common across all systems with deployed agents.
+
+_这些初始的判断可以帮助你去查看向这种rootkit安装产生的警告信息是否已经感染到了这些安装客户端的机器上面了_
+
+This situational awareness provides a method to assist you in determining if an attack is
+targeting multiple machines or only one host.
+
+_这种潜在的意识可以给你提供一种帮助你判断攻击者是攻击了一台机器还是许多机器_
+
+**Which Type Is Right For Me?**
+
+**_那种安装模式更适合我呢？_**
+
+
+Although we would like to answer that question for you, there are too many factors
+to consider. 
+
+_虽然在我们回答你的这个问题之前，我们有许多问题需要去考虑。_
+
+However, we have included a helpful table (Table 1.1) to assist you in the
+decision-making process.
+
+_但是。我们还是给你提供了一张很有用的表(表1.1)去帮助你分析决定。_
+
+
+![](http://vdisk-thumb-3.wcdn.cn/frame.1024x768/data.vdisk.me/55890007/5fe3ef3171b934f16d916979ddb4355947c12656?ip=1363191600,10.75.7.27&ssig=wDaT%2FdlGco&Expires=1363190400&KID=sae,l30zoo1wmz)
+
+
+**Identifying OSSEC Pre-installation Considerations**
+
+**_确认安装OSSEC之前的一些注意事项_**
+
+Now that you know about the different installation types, it is time to perform the installation,
+right?
+
+_现在你已经知道了不同的安装方式之前的区别了，是否现在就可以开始安装了？_
+
+ Before you rush into installing OSSEC, take a moment to make sure you have all the
+information you need, especially if you are going to deploy OSSEC agents and OSSEC servers.
+
+_在你决定赶快过去安装之前尤其是安装部署OSSEC的客户端与服务器模式之前，你最好花个几分钟考虑下对于安装这些所需要的知识你是否都已经具备了。_
+
+Depending on the operating system you are looking to install OSSEC on, there might be
+some dependencies you must satisfy prior to installation.
+
+_根据你所选择的安装的操作系统的不同，你必须满足这些不同的依赖_
+
+
+**Supported Operating Systems**
+
+**_支持的操作系统_**
+
+The OSSEC HIDS has been tested on the following operating systems:
+
+_OSSEC HIDS 已经在下列的操作系统上面测试过了_
+
+>* OpenBSD 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, and 4.2
+>* GNU/Linux
+>* Slackware 10.1 and 10.2
+>* Ubuntu 5.04, 5.10, and 6.06 (32 and 64 bits)
+>* Red Hat 8.0 and 9.0
+>* Red Hat Enterprise Linux (RHEL) 4 and 5
+>* SUSE ES 9 and 10
+>* Fedora Core 2, 3, 4, and 5
+>* Debian 3.1 Sarge
+>* FreeBSD 5.2.1, 5.4-RELEASE, 6.0-STABLE, and 6.1-RELEASE
+>* NetBSD 3.0
+>* Solaris 2.8, 2.9 (Sparc) and 10 (x86)
+>* AIX 5.2 ML-07
+>* HP-UX 11i v2
+>* Mac OS X 10.x
+>* Windows 2000, XP, and 2003 (agent only)
+
+
+
+
+**Special Considerations**
+
+**_一些特别的需要考虑的_**
+
+Every operating system has specific requirements that must be addressed before new software is installed. 
+
+_每一个操作系统在安装新软件之前都必须解决一些依赖问题_
+
+We have identified known prerequisites for some of the more popular operating
+systems here.
+
+_我们已经列出了一些常见的操作系统的依赖问题_
+
+>* Microsoft Windows
+
+>>* Before installation of the OSSEC HIDS software, no additional packages must be installed
+on a Microsoft Windows platform. 
+
+>>* 对于windows系列，在安装OSSEC HIDS软件之前我们并不需要一些其它的软件包需要安装
+
+>>* Please note that continued development and support are only available for:
+
+>>* 注意我们仅仅对于以下这些保持持续的开发与支持:
+
+>>>* Microsoft Windows 2000 Workstation
+>>>* Microsoft Windows 2000 Server
+>>>* Microsoft Windows XP Home
+>>>* Microsoft Windows XP Professional
+>>>* Microsoft Windows 2003 Server
+
+>>* The OSSEC HIDS can only be installed as an Agent at this time because of the reliance
+on Unix sockets for the server portion. 
+
+>>* _由于作为服务器要求的Unix套接子的稳定性的要求，目前OSSEC HIDS 仅仅可以当作 客户端安装这种方式(在windows上面安装)_
+
+>>* Local and Server type installations are currently being investigated.
+
+>>* _本地与服务器的安装方式目前正在调研研究中_
+
+>* Sun Solaris
+
+>>* Before beginning your OSSEC installation on a Sun Solaris platform, ensure that you have installed the SUNWxcu4 package. 
+
+>>* _在Sun solaris 平台上面安装OSSEC之前必须确保系统已经安装了SUNWxcu4 包_
+
+>>* To check if the SUNWxcu4 package has previously been installed, execute the following from your Solaris command line:
+
+>>* _可以在你的Solaris命令行中运行如下的命令来检测是否已经安装了SUNWxcu4 包_
+
+>>*    $ pkginfo | grep SUNWxcu4
+
+>>* If you do not have the SUNWxcu4 package installed, execute the following command
+to install it:
+
+>>* _如果你没有安装SUNWxcu4 安装包。可以执行如下的命令安装_
+
+>>*   $ pkgadd SUNWxcu4
+
+
+
+>* Ubuntu Linux
+
+>>* If using an Ubuntu Linux version before release 7.04 you must ensure that the build-essential package is installed before you install the OSSEC HIDS software. 
+
+>>* _如果你使用的ubuntu版本是7.04 之前的化那么一定要在安装OSSEC HIDS之前确定系统有没有安装build-essential软件包_
+
+
+>>* To check if the build-essential package has already been installed, execute the following from your Ubuntu command line:
+
+>>* _检测是否安装了build-essential 软件包可以执行如下的命令_
+
+>>*	$ aptitude search build-essential
+
+>>* If the build-essential package is installed, you will see an i beside the package: 
+
+>>* _如果build-essential软件包已经安装了的话，可以看到如下的信息_
+
+>>*	i build-essential - informational list of build-essential pack
+
+
+>>* If you do not have the build-essential package installed, execute the following command
+to install it:
+
+>>* _当然如果你没有安装 build-essential软件包的话，可以执行如下的命令安装_
+
+>>*	$ sudo apt-get install build-essential
+
+>>* If using Ubuntu Linux version 7.04 or later you must ensure that the gcc and glibc-dev
+packages are installed before you install the OSSEC HIDS software. 
+
+>>* _如果使用的ubuntu的系统是7.04或者之后的版本那么一定要确认系统是否已经安装了gcc 和 glibc-dev 软件包_
+
+>>* These packages are required to properly build the OSSEC HIDS software for your system. 
+
+>>* _这些软件包对于安装OSSEC HIDS 软件都是必须需要的。_
+
+>>* If you do not have the gcc and glibc-dev packages installed, execute the following command to install the packages:
+
+>>* 如果你没有安装 gcc 和 glibc-dev 软件包，可以执行如下的命令安装：
+
+>>*	$ sudo apt-get install gcc glibc-dev
+
+
+>* Mac OS X
+
+>>* Before you install the OSSEC HIDS software on a system running Mac OS X, you must
+ensure that the Xcode development package is installed to compile the OSSEC HIDS software.
+
+>>* _在Mac OS系统上面安装 OSSEC HIDS 需要确保系统装了可以编译OSSEC HIDS的 Xcode 开发工具_
+
+>>* This package can be found on your Mac OS X installation media or at the Apple Developer Connection site.
+
+>>* _你可以在Mac OS X的安装中心或者连接到 苹果的开发网站查看_
+
+>>* To install Xcode, you must:
+>>>* Download Xcode from the Apple Developer Connection tool site located at
+   http://developer.apple.com/tools/.
+>>>* Run the installer to install the packages you need. 
+
+>>* _安装Xcode 按如下步骤:_
+>>>* _在苹果的开发者工具集 http://developer.apple.com/tools/ 网站里下载 Xcode_
+>>>* _运行安装执行文件_
+
+
+>>* For the OSSEC HIDS software, at a minimum, you need the Developer Tools Software package, but feel free to install any of the other useful packages contained within the Xcode installer.
+
+>>* _安装OSSEC HIDS 软件的最低需要 开发工具包，安装Xcode可以包含很多非常有用的软件_
+
+
+**Summary**
+
+**_总结_**
+
+IDSs act as security guards deployed throughout your network. 
+
+_IDS 在网络的部署中中扮演着网络守护者_
+
+An IDS watches for intruders on your network in the form of malicious users, bots, and worms, and alerts you as soon as the intrusions are detected.
+
+_IDS在你的网络中监视着各种恶意的用户、机器人、蠕虫、的入侵，并在检测到时第一时间通知你。_
+
+An NIDS is a powerful monitoring system for your network traffic. 
+
+_NIDS是强有力的监控网络流量的系统_
+
+When properly deployed, it has the capability to alert you of attacks destined for your critical systems. 
+
+_如果部署得当，它可以为你的重要的系统提供确定的攻击警告_
+
+
+If an NIDS is incorrectly deployed, you might find yourself chasing down false positives instead of handling valid incidents. 
+
+_当然如果安装不恰当的话，你可能会处理许多的误报而不是恰当的事件_
+
+Tuning your NIDS solution for your environment is key to reducing false
+positives. 
+
+_减少误报率的关键点是依靠部署的环境去调节NIDS_
+
+Proper signature creation allows you to mitigate common NIDS evasion techniques
+such as string matching, session splicing, fragmentation attacks, and DoS attacks.
+
+_建立合适的特征库可以有效的避免常见的对抗NIDS的技术，例如字符串匹配(是这样子吗？)，会话拼接，碎片攻击，拒绝服务攻击等_
+
+ Most network intrusion detection systems currently have a method to mitigate these techniques by reasembling the full traffic session in memory. 
+
+
+_目前大多数的网络入侵检测系统使用在内存中重组网络流量会话的方法来抵抗这些攻击技术_
+
+As you would expect, this can prove dangerous on a busy network or on an NIDS that has not been properly tuned, because it has the potential to exhaust all system resources.
+
+_正如你可以预见的一样，在一个繁忙的或者NIDS 并没有很好的被调整的网络中这将是十分危险的，因为这可能会耗尽系统的所有资源。_
+
+An HIDS is designed to protect the server on which it is installed. 
+
+_HIDS 是被用来设计保护安装它的系统的_
+
+It is able to inspect the full communications stream between the local and remote system interacting with the HIDS.
+
+_它可以检测到本地与远程系统使用HIDS交互的所有的通信流(????)_
+
+NIDS evasion techniques do not cause the same headaches with an HIDS solution because
+the HIDS is able to inspect the fully recombined session as presented to the operating system.
+
+_那些另NIDS头疼的抵抗NIDS的技术在HIDS身上并不起作用，因为NIDS可以在操作系统上从现完整的会话信息_
+
+An HIDS is also capable of performing additional system level checks that only IDS software
+installed on a host machine can do, such as f ile integrity checking, registry monitoring, rootkit
+detection, and active response.
+
+_另外,HIDS 也可以实现向安装到主机的IDS才可以做的一样系统级别的检测，例如 完整性检测、监控注册表、日志分析、rootkit 检测、和联动机制_
+
+OSSEC is a scalable, multiplatform, open source HIDS with more than 5,000 downloads
+each month. 
+
+_ossec 是一个可扩展的、跨平台的、每个月超过5000的下载量的开源HIDS_
+
+It has a powerful correlation and analysis engine that integrates log analysis, file
+integrity checking, Windows registry monitoring, centralized policy enforcement, rootkit
+detection, and real-time alerting and active response.
+
+_ossec具有强大的关联分析引擎、日志分析、文件完整性检测、windows注册表监控、集中的策略执行与实时的关联反应的特点。_
+
+ OSSEC runs on most operating systems,including Linux, OpenBSD, FreeBSD, Mac OS X, Solaris, and Windows. 
+
+_ossec可以运行在大多数操作系统上面,这其中包括linux、OpenBSD、FreeBSD、Mac OS X、Sun Solaris, and Microsoft Windows 等系统 _
+
+In addition to being deployed as an HIDS, it is commonly used strictly as a log analysis tool, to monitor and analyze firewalls, IDSs, Web servers, and authentication logs.
+
+_另外ossec通常作为HIDS被部署。这其中应用较多的是作为一种日志分析工具,监控与分析防火墙、IDS系列、web服务器、审计等的日志_
+
+There are three installation types to consider when installing the OSSEC HIDS.
+
+_当安装OSSEC HIDS 时可以有3种方式选择_
+
+The Local installation type is designed to be an all-in-one solution that includes all the protection and logging capabilities the OSSEC HIDS software provides. 
+
+_本地安装是一种包含了OSSEC HIDS 软件提供的保护与日志所有功能于一体的集中解决方案_
+
+The Agent installation type protects the host it is installed on, reports all alerts, and logs back to a server installation. 
+
+_客户端安装方式可以保护安装在它上面的机器，将所有的警告、日志信息回传给远程的服务器。_
+
+The Server installation type protects the system it is installed on and allows you to centralize the alerting and logging of remote agents and third-party devices such as routers, switches, firewalls, and so on.
+
+_服务器安装方式可以保护本地系统，同时允许把远程与第三方的警告与日志发回来集中分析，例如路由器、交换机、防火墙等等设备._
+
+
+The OSSEC HIDS software can be installed on every popular operating system currently
+available. 
+
+_OSSEC HIDS 可以安装在所有流行的操作系统上面_
+
+
+Certain operating systems have dependencies that must be satisfied prior to beginning
+installation. 
+
+_当然，对于每一种操作系统安装(OSSEC)之前必须先要满足它的依赖条件。_
+
+The most current list of supported operating systems can be found on the OSSEC
+Wiki site located at www.ossec.net/wiki/index.php/Supported_System.
+
+_最新的OSSEC支持的操作系统列表可以在位于www.ossec.net/wiki/index.php/Supported_System的OSSEC的WIKI上面找到(当前网址已经不可用了)_
+
+
+*******************************
+
+
+
+
+
+
+
 
 ******
 

@@ -1,12 +1,12 @@
-sAoccec
-=======
+ossec mirror
+==============
 
-sAoccec mean something about ossec 
+this is a mirror for ossec in github
 
-##[更多 关于 ossec 的介绍与知识 参考这里 ](http://www.ossec.net/)##
+the ossec websit is [here](http://www.ossec.net/)
 
-###在这里 做的任务暂定为以下几条###
+the Official Code repository is in [bitbucket](https://bitbucket.org/jbcheng/ossec-hids)
 
-1. ossec 的翻译工作
-2. ossec 框架的介绍
-3. 源码分析
+now i move it from bitbucket to github use [git-hg](https://github.com/offbytwo/git-hg)  tool 
+
+

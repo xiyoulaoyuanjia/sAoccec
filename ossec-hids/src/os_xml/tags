@@ -1,0 +1,92 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CLOSE	os_xml.c	28;"	d	file:
+CLOSE	os_xml_writer.c	31;"	d	file:
+FGETC	os_xml.c	58;"	d	file:
+FWGETC	os_xml_writer.c	63;"	d	file:
+LEOF	os_xml.c	30;"	d	file:
+LEOF	os_xml_writer.c	33;"	d	file:
+NAME	Makefile	/^NAME = os_xml$/;"	m
+OBJS	Makefile	/^OBJS =  os_xml.o os_xml_access.o os_xml_node_access.o os_xml_variables.o os_xml_writer.o$/;"	m
+OPEN	os_xml.c	27;"	d	file:
+OPEN	os_xml_writer.c	30;"	d	file:
+OS_ApplyVariables	os_xml_variables.c	/^int OS_ApplyVariables(OS_XML *_lxml)$/;"	f
+OS_ClearNode	os_xml_node_access.c	/^void OS_ClearNode(xml_node **node)$/;"	f
+OS_ClearXML	os_xml.c	/^void OS_ClearXML(OS_XML *_lxml)$/;"	f
+OS_ElementExist	os_xml_access.c	/^int OS_ElementExist(OS_XML *_lxml, char **element_name)$/;"	f
+OS_GetAttributeContent	os_xml_access.c	/^char *OS_GetAttributeContent(OS_XML *_lxml, char **element_name,$/;"	f
+OS_GetAttributes	os_xml_access.c	/^char **OS_GetAttributes(OS_XML *_lxml, char **element_name)$/;"	f
+OS_GetContents	os_xml_access.c	/^char **OS_GetContents(OS_XML *_lxml, char **element_name)$/;"	f
+OS_GetElementContent	os_xml_access.c	/^char **OS_GetElementContent(OS_XML *_lxml, char **element_name)$/;"	f
+OS_GetElements	os_xml_access.c	/^char **OS_GetElements(OS_XML *_lxml, char **element_name)$/;"	f
+OS_GetElementsbyNode	os_xml_node_access.c	/^xml_node **OS_GetElementsbyNode(OS_XML *_lxml, xml_node *node)$/;"	f
+OS_GetOneContentforElement	os_xml_access.c	/^char *OS_GetOneContentforElement(OS_XML *_lxml, char **element_name)$/;"	f
+OS_ReadXML	os_xml.c	/^int OS_ReadXML(char *file, OS_XML *_lxml)$/;"	f
+OS_RootElementExist	os_xml_access.c	/^int OS_RootElementExist(OS_XML *_lxml, char *element_name)$/;"	f
+OS_WriteXML	os_xml_writer.c	/^int OS_WriteXML(char *infile, char *outfile, char **nodes, char *attr,$/;"	f
+OS_XML	os_xml.h	/^}OS_XML;$/;"	t	typeref:struct:_OS_XML
+OS_XML_WRITER_H	os_xml_writer.h	19;"	d
+PT	Makefile	/^PT = ..\/$/;"	m
+SRCS	Makefile	/^SRCS =  os_xml.c os_xml_access.c os_xml_node_access.c os_xml_variables.c os_xml_writer.c$/;"	m
+XMLW_ERROR	os_xml_writer.h	31;"	d
+XMLW_NOIN	os_xml_writer.h	32;"	d
+XMLW_NOOUT	os_xml_writer.h	33;"	d
+XML_ATTR	os_xml.h	29;"	d
+XML_ELEM	os_xml.h	28;"	d
+XML_MAXSIZE	os_xml.h	21;"	d
+XML_MAXSIZE	os_xml_writer.h	22;"	d
+XML_NODE	os_xml.h	/^typedef xml_node ** XML_NODE;$/;"	t
+XML_VAR	os_xml.h	25;"	d
+XML_VAR	os_xml_writer.h	26;"	d
+XML_VARIABLE_BEGIN	os_xml.h	30;"	d
+_GetElementContent	os_xml_access.c	/^char **_GetElementContent(OS_XML *_lxml, char **element_name, char *attr)$/;"	f
+_GetElements	os_xml_access.c	/^char **_GetElements(OS_XML *_lxml, char **element_name,int type)$/;"	f
+_OS_XML	os_xml.h	/^typedef struct _OS_XML$/;"	s
+_R_COM	os_xml.c	24;"	d	file:
+_R_COM	os_xml_writer.c	27;"	d	file:
+_R_CONFE	os_xml.c	22;"	d	file:
+_R_CONFE	os_xml_writer.c	25;"	d	file:
+_R_CONFS	os_xml.c	21;"	d	file:
+_R_CONFS	os_xml_writer.c	24;"	d	file:
+_R_EQUAL	os_xml.c	23;"	d	file:
+_R_EQUAL	os_xml_writer.c	26;"	d	file:
+_R_VAR	os_xml.c	25;"	d	file:
+_R_VAR	os_xml_writer.c	28;"	d	file:
+_ReadElem	os_xml.c	/^int _ReadElem(FILE *fp, int position, int parent, OS_XML *_lxml)$/;"	f
+_WReadElem	os_xml_writer.c	/^int _WReadElem(FILE *fp_in, FILE *fp_out,$/;"	f
+__OS_XML_H	os_xml.h	18;"	d
+_checkmemory	os_xml.c	/^int _checkmemory(char *str,OS_XML *_lxml)$/;"	f
+_getattributes	os_xml.c	/^int _getattributes(FILE *fp,int parent,OS_XML *_lxml)$/;"	f
+_line	os_xml.c	/^int _line;$/;"	v
+_line	os_xml_writer.c	/^int _line;$/;"	v
+_oscomment	os_xml.c	/^int _oscomment(FILE *fp)$/;"	f
+_oswcomment	os_xml_writer.c	/^int _oswcomment(FILE *fp_in, FILE *fp_out)$/;"	f
+_writecontent	os_xml.c	/^int _writecontent(char *str, unsigned int size, int parent, OS_XML *_lxml)$/;"	f
+_writememory	os_xml.c	/^int _writememory(char *str, short int type, unsigned int size,$/;"	f
+_xml_fgetc	os_xml.c	/^int _xml_fgetc(FILE *fp)$/;"	f
+_xml_node	os_xml.h	/^typedef struct _xml_node$/;"	s
+_xml_wfgetc	os_xml_writer.c	/^int _xml_wfgetc(FILE *fp_in, FILE *fp_out)$/;"	f
+attributes	os_xml.h	/^    char **attributes;$/;"	m	struct:_xml_node
+ck	os_xml.h	/^    int *ck;		\/* If the item was closed or not *\/$/;"	m	struct:_OS_XML
+content	os_xml.h	/^    char *content;$/;"	m	struct:_xml_node
+ct	os_xml.h	/^    char **ct;		\/* Content is stored *\/$/;"	m	struct:_OS_XML
+cur	os_xml.h	/^    int cur;		\/* Currently position (and last after reading) *\/$/;"	m	struct:_OS_XML
+el	os_xml.h	/^    char **el;		\/* The element\/attribute name is stored *\/$/;"	m	struct:_OS_XML
+element	os_xml.h	/^    char *element;$/;"	m	struct:_xml_node
+err	os_xml.h	/^    char err[128];	\/* Error messages are stored in here *\/$/;"	m	struct:_OS_XML
+err_line	os_xml.h	/^    int err_line;   \/* Line number of the possible error *\/$/;"	m	struct:_OS_XML
+fol	os_xml.h	/^    int fol;		\/* Currently position for the xml_access *\/$/;"	m	struct:_OS_XML
+key	os_xml.h	/^    int key;$/;"	m	struct:_xml_node
+line	os_xml.h	/^    int line;$/;"	m	struct:_xml_node
+ln	os_xml.h	/^    int *ln;        \/* Currently xml file line *\/$/;"	m	struct:_OS_XML
+main	examples/mem_test.c	/^int main(int argc, char ** argv)$/;"	f
+main	examples/test.c	/^int main(int argc, char ** argv)$/;"	f
+rl	os_xml.h	/^    int *rl;		\/* Relation in the XML *\/$/;"	m	struct:_OS_XML
+tp	os_xml.h	/^    int *tp;		\/* Item type	*\/$/;"	m	struct:_OS_XML
+values	os_xml.h	/^    char **values;$/;"	m	struct:_xml_node
+xml_error	os_xml.c	/^void xml_error(OS_XML *_lxml, const char *msg,...)$/;"	f
+xml_node	os_xml.h	/^}xml_node;$/;"	t	typeref:struct:_xml_node

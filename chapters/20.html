@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Getting the Files md5sum -c ossec-hids-1.4_checksum.txt / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/"></a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#getting-the-files">Getting the Files</a></li>
+<li><a href="#md5sum-c-ossec-hids-14_checksumtxt">md5sum -c ossec-hids-1.4_checksum.txt</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/19.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/03.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="getting-the-files">Getting the Files</h1>
+<p>All the OSSEC HIDS files needed for installation to any operating system are available at the
+www.ossec.net/files/ Web site. There are three files of interest to us: the main source tar file, the
+Windows agent installer, and the checksum file.</p>
+<p>The main source tar file contains the complete source code for the OSSEC HIDS, including
+the Windows agent code. Because Unix- and Linux-based operating systems provide complete
+development tools, the main source tar file contains everything needed to install the OSSEC
+HIDS. For Microsoft Windows, the installation is more complex and development tools are not
+readily available to build the OSSEC HIDS software. Because no development tools are available,
+an executable, GUI-based installer is provided that installs a precompiled OSSEC HIDS service.
+The third file is a checksum file used to validate the integrity of the downloaded files.</p>
+<p>From the following URLs, download the main source tar file, the Windows agent installer,
+and the checksum files, using a browser or command-line utility such as wget:
+■ www.ossec.net/files/ossec-hids-1.4.tar.gz
+■ www.ossec.net/files/ossec-agent-win32-1.4.exe
+■ www.ossec.net/files/ossec-hids-1.4_checksum.txt</p>
+<p>The checksums are provided to ensure the integrity of the downloaded files and allow
+you to check for file corruption or unintentional modification. If these checks fail, you will
+have to try the download again. From the command line, change to the directory where you
+saved the downloaded files and verify the checksums.</p>
+<h1 id="md5sum-c-ossec-hids-14_checksumtxt">md5sum -c ossec-hids-1.4_checksum.txt</h1>
+<p>ossec-hids-1.4.tar.gz: OK
+ossec-agent-win32-1.4.exe: OK</p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/19.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/03.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href=""></a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+
+        
+    </body>
+</html>

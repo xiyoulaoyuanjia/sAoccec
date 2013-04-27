@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>总结 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">总结</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/05.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/12.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">总结</h1>
+<p><strong>Summary</strong></p>
+<p><strong><em>总结</em></strong></p>
+<p>IDSs act as security guards deployed throughout your network. </p>
+<p><em>IDS 在网络的部署中中扮演着网络守护者</em></p>
+<p>An IDS watches for intruders on your network in the form of malicious users, bots, and worms, and alerts you as soon as the intrusions are detected.</p>
+<p><em>IDS在你的网络中监视着各种恶意的用户、机器人、蠕虫、的入侵，并在检测到时第一时间通知你。</em></p>
+<p>An NIDS is a powerful monitoring system for your network traffic. </p>
+<p><em>NIDS是强有力的监控网络流量的系统</em></p>
+<p>When properly deployed, it has the capability to alert you of attacks destined for your critical systems. </p>
+<p><em>如果部署得当，它可以为你的重要的系统提供确定的攻击警告</em></p>
+<p>If an NIDS is incorrectly deployed, you might find yourself chasing down false positives instead of handling valid incidents. </p>
+<p><em>当然如果安装不恰当的话，你可能会处理许多的误报而不是恰当的事件</em></p>
+<p>Tuning your NIDS solution for your environment is key to reducing false
+positives. </p>
+<p><em>减少误报率的关键点是依靠部署的环境去调节NIDS</em></p>
+<p>Proper signature creation allows you to mitigate common NIDS evasion techniques
+such as string matching, session splicing, fragmentation attacks, and DoS attacks.</p>
+<p><em>建立合适的特征库可以有效的避免常见的对抗NIDS的技术，例如字符串匹配(是这样子吗？)，会话拼接，碎片攻击，拒绝服务攻击等</em></p>
+<p>Most network intrusion detection systems currently have a method to mitigate these techniques by reasembling the full traffic session in memory. </p>
+<p><em>目前大多数的网络入侵检测系统使用在内存中重组网络流量会话的方法来抵抗这些攻击技术</em></p>
+<p>As you would expect, this can prove dangerous on a busy network or on an NIDS that has not been properly tuned, because it has the potential to exhaust all system resources.</p>
+<p><em>正如你可以预见的一样，在一个繁忙的或者NIDS 并没有很好的被调整的网络中这将是十分危险的，因为这可能会耗尽系统的所有资源。</em></p>
+<p>An HIDS is designed to protect the server on which it is installed. </p>
+<p><em>HIDS 是被用来设计保护安装它的系统的</em></p>
+<p>It is able to inspect the full communications stream between the local and remote system interacting with the HIDS.</p>
+<p><em>它可以检测到本地与远程系统使用HIDS交互的所有的通信流(????)</em></p>
+<p>NIDS evasion techniques do not cause the same headaches with an HIDS solution because
+the HIDS is able to inspect the fully recombined session as presented to the operating system.</p>
+<p><em>那些另NIDS头疼的抵抗NIDS的技术在HIDS身上并不起作用，因为NIDS可以在操作系统上从现完整的会话信息</em></p>
+<p>An HIDS is also capable of performing additional system level checks that only IDS software
+installed on a host machine can do, such as f ile integrity checking, registry monitoring, rootkit
+detection, and active response.</p>
+<p><em>另外,HIDS 也可以实现向安装到主机的IDS才可以做的一样系统级别的检测，例如 完整性检测、监控注册表、日志分析、rootkit 检测、和联动机制</em></p>
+<p>OSSEC is a scalable, multiplatform, open source HIDS with more than 5,000 downloads
+each month. </p>
+<p><em>ossec 是一个可扩展的、跨平台的、每个月超过5000的下载量的开源HIDS</em></p>
+<p>It has a powerful correlation and analysis engine that integrates log analysis, file
+integrity checking, Windows registry monitoring, centralized policy enforcement, rootkit
+detection, and real-time alerting and active response.</p>
+<p><em>ossec具有强大的关联分析引擎、日志分析、文件完整性检测、windows注册表监控、集中的策略执行与实时的关联反应的特点。</em></p>
+<p>OSSEC runs on most operating systems,including Linux, OpenBSD, FreeBSD, Mac OS X, Solaris, and Windows. </p>
+<p>_ossec可以运行在大多数操作系统上面,这其中包括linux、OpenBSD、FreeBSD、Mac OS X、Sun Solaris, and Microsoft Windows 等系统 _</p>
+<p>In addition to being deployed as an HIDS, it is commonly used strictly as a log analysis tool, to monitor and analyze firewalls, IDSs, Web servers, and authentication logs.</p>
+<p><em>另外ossec通常作为HIDS被部署。这其中应用较多的是作为一种日志分析工具,监控与分析防火墙、IDS系列、web服务器、审计等的日志</em></p>
+<p>There are three installation types to consider when installing the OSSEC HIDS.</p>
+<p><em>当安装OSSEC HIDS 时可以有3种方式选择</em></p>
+<p>The Local installation type is designed to be an all-in-one solution that includes all the protection and logging capabilities the OSSEC HIDS software provides. </p>
+<p><em>本地安装是一种包含了OSSEC HIDS 软件提供的保护与日志所有功能于一体的集中解决方案</em></p>
+<p>The Agent installation type protects the host it is installed on, reports all alerts, and logs back to a server installation. </p>
+<p><em>客户端安装方式可以保护安装在它上面的机器，将所有的警告、日志信息回传给远程的服务器。</em></p>
+<p>The Server installation type protects the system it is installed on and allows you to centralize the alerting and logging of remote agents and third-party devices such as routers, switches, firewalls, and so on.</p>
+<p><em>服务器安装方式可以保护本地系统，同时允许把远程与第三方的警告与日志发回来集中分析，例如路由器、交换机、防火墙等等设备.</em></p>
+<p>The OSSEC HIDS software can be installed on every popular operating system currently
+available. </p>
+<p><em>OSSEC HIDS 可以安装在所有流行的操作系统上面</em></p>
+<p>Certain operating systems have dependencies that must be satisfied prior to beginning
+installation. </p>
+<p><em>当然，对于每一种操作系统安装(OSSEC)之前必须先要满足它的依赖条件。</em></p>
+<p>The most current list of supported operating systems can be found on the OSSEC
+Wiki site located at www.ossec.net/wiki/index.php/Supported_System.</p>
+<p><em>最新的OSSEC支持的操作系统列表可以在位于www.ossec.net/wiki/index.php/Supported_System的OSSEC的WIKI上面找到(当前网址已经不可用了)</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/05.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/12.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

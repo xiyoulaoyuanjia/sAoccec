@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>联动反应 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">联动反应</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/06.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/02.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">联动反应</h1>
+<p><strong>Active Response</strong></p>
+<p><strong><em>联动反应</em></strong></p>
+<p>Active response allows you to automatically execute commands or responses when a speciﬁc
+event or set of events is triggered. </p>
+<p><em>当特别的事件或者事件集被触发时,联动反应自动的执行命令或者反应</em></p>
+<p>For example, look at Figure 1.8. An attacker launches an attack against your organization’s mail server (1). 
+<em>例如：如果1.8所示,攻击者向你的组织的邮件服务器发动了攻击</em></p>
+<p>The attack then passes through your ﬁrewall (2), and ﬁnally, transparently, passes by your deployed network tap that inspects all trafﬁc destined for your mail server (3). </p>
+<p><em>攻击先通过防火墙,最后通过了部署在邮件服务器上用来检测所有通过的流量的网络trap</em></p>
+<p>Your NIDS happens to have a signature for this particular attack. </p>
+<p><em>NIDS 对于这种攻击有相应的特征库</em></p>
+<p>The NIDS active response service sends a command to your ﬁrewall (4) to reset the attacker’s session and place a rule blocking that host. </p>
+<p><em>这样，NIDS的联动反应机制就会向防火墙发送命令停止会话并加入相应的策略去阻止这台主机的通过防火墙</em></p>
+<p>When the attacker, whose connection has been reset, tries to initiate the attack again (5), the attacker is blocked.</p>
+<p><em>当攻击者的连接会话被阻止，他会在去尝试很多次，而由于我们已经修改了防火墙的策略(阻止其ip或者host通过)所以攻击者会被阻止</em></p>
+<p>The beneﬁts of active response are enormous, but also risky. </p>
+<p><em>联动反应的好处与风险是同时存在的。</em></p>
+<p>For example, legitimate trafﬁc might generate a false positive and block a legitimate user/host if the rules are poorly designed. </p>
+<p><em>例如、当策略指定的不恰当时,对于合法的流量可能产生错误的判断从而阻止合法的用户与主机通过防火墙</em></p>
+<p>If an attacker knows that your HIDS blocks a certain trafﬁc signature, the attacker
+could spoof IP addresses of critical servers in your infrastructure to deny you access. </p>
+<p>当然如果攻击者知道你的HIDS的基于某个流量特征库产生相应的策略去阻止这样的ip或者host通过,攻击者就可以伪造你的设备中重要的一些服务器的ip地址去阻止你的访问</p>
+<p>This is essentially a DoS attack that prevents your host from interacting with that IP address.</p>
+<p><em>这实际山就是一种阻止你的主机访问一些ip地址的拒绝服务攻击</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/06.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/02.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

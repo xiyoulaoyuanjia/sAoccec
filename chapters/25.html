@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Installing the Server /opt/ossec/bin/ossec-control start / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/"></a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#installing-the-server">Installing the Server</a></li>
+<li><a href="#optossecbinossec-control-start">/opt/ossec/bin/ossec-control start</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/26.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/06.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="installing-the-server">Installing the Server</h1>
+<p>As with the local install type, server installations can only be done on Linux- and BSD-based
+operating systems, including Mac OS X. After the initial screen and language selection, we start by
+choosing server installation in step 1 and then a directory location in step 2. Defaults are shown in
+square braces and can be accepted by pressing Enter, or customized similar to the following:</p>
+<p>1- What kind of installation do you want (server, agent, local or help)? server
+- Server installation chosen.
+2- Setting up the installation environment.
+- Choose where to install the OSSEC HIDS [/var/ossec]: /var/ossec
+- Installation will be made at /var/ossec .</p>
+<p>Step 3, and the corresponding sub steps, deal with notifications and alerts. At this point,
+you must decide which features you want to enable. You can alter any of the choices later in
+the ossec.conf file or by reinstalling the OSSEC HIDS.</p>
+<p>这差很多</p>
+<p>After you press Enter, the OSSEC HIDS is compiled, installed, and configured with the
+options you specified. When the installation is complete, the installer script provides you with
+some final information.You should make note of the information and take any recommended
+actions. For example, for the OSSEC HIDS to use the OpenBSD pf firewall, a few lines
+must be added to the /etc/pf.conf.</p>
+<p>You now have a working server installation of the OSSEC HIDS. All binaries, scripts, and
+configurations for the OSSEC HIDS are in the installation directory you specified. To verify
+that everything is ok, start the OSSEC HIDS and complete the installation.</p>
+<h1 id="optossecbinossec-control-start">/opt/ossec/bin/ossec-control start</h1>
+<p>Before moving on to setting up agents, remember that the OSSEC HIDS server needs
+to receive communication from agents on port 1514 and possibly 514. You must ensure that
+the firewall or packet filter on the server host machine allows this traffic. Each operating system
+and software distribution provides a way to do this. You must enable inbound UDP traffic
+on ports 1514 and 514 from any subnets where agents are installed. The firewall rule must
+maintain connection state because the agent expects responses from the server.</p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/26.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/06.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href=""></a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+
+        
+    </body>
+</html>

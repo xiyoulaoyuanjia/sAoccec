@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>服务器安装 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">服务器安装</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/17.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/04.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">服务器安装</h1>
+<p><strong>Server Installation</strong></p>
+<p><strong><em>服务器安装</em></strong></p>
+<p>The Server installation type is recommended if you already have multiple Agent installations
+deployed throughout your organization and must collect the host-generated alerts. </p>
+<p><em>当你已经在组织系统上部署了许多的以客户端安装的OSSEC时并且需要收集那些主机的警告时，这种服务器安装方式是最恰当的安装了</em></p>
+<p>The role of an OSSEC server is to collect all alerts from deployed Agent installations and provide an overall view of what is being reported by all deployed Agent installations (Figure 1.10).</p>
+<p><em>OSSEC 服务器的作用是收集来自部署的客户端安装的收集到的所有警告信息并且统筹分析这些警告信息对于这些客户端安装的系统的危害程度(如图 1.10 所示)</em></p>
+<p><img alt="" src="http://vdisk-thumb-1.wcdn.cn/frame.1024x768/data.vdisk.me/55890007/c794e856fbf6226c104af440db97a26274214f34?ip=1363191600,10.75.7.27&amp;ssig=zFrNs5tNn7&amp;Expires=1363190400&amp;KID=sae,l30zoo1wmz"/></p>
+<p>Consider the following situation.</p>
+<p><em>考虑以下这种情景:</em></p>
+<p>You check your assigned issues in the ticketing system and notice that three users have logged issues that morning indicating that their workstations are running slower than usual. </p>
+<p><em>你从你的ticketing系统上面查看分配的问题中发现有3个用户的工作站系统运行的比平时要慢许多的问题</em></p>
+<p>The users also indicate that they can hear the computer hard disks working very hard, when they are not doing anything on the system.</p>
+<p><em>另外用户反应他们并没有在系统中有任何操作的时候但是系统的硬盘却飞速的转动着。</em></p>
+<p>You decide to walk down and look at the first computer of the first user who reported the issue. </p>
+<p><em>你决定去第一个反应这些问题的用户的电脑上看看。</em></p>
+<p>After reviewing the OSSEC logs on the system, you notice that a rootkit was detected at 3 a.m.</p>
+<p><em>看完在电脑上的OSSEC 的日志之后，你发现在3点的时候有一个rootkit被检测到了</em></p>
+<p>that morning:
+Received From: rootcheck
+Rule: 14 fired (level 8) -&gt; “Rootkit detection engine message’ ”
+Portion of the log(s):
+Rootkit ‘t0rn’ detected by the presence of file ‘/lib/libproc.a’.</p>
+<p>After reading this information, alarms go off and questions start to go through your
+mind:</p>
+<p><em>阅读完此消息后，警告已经消除了，但是许多的疑问开始在你的脑子掠过</em></p>
+<blockquote>
+<ul><li>“Is this rootkit installed on the other two workstations that reported problems this
+     morning?”</li>
+<li>“How many other systems has this rootkit been installed on?”</li>
+<li>“Were the rootkits all installed last night, or have these rootkits been installed over
+     time on various systems?”</li>
+<li>“Is this rootkit only installed on workstations, or has it also been installed on any
+     critical systems?”</li>
+<li>
+<p>“Should I begin handling this incident on this workstation, or should I check the
+     other workstations first?”</p>
+</li>
+<li>
+<p>在另外两台今天早上预报问题的工作站是否也被安装了rootkit呢？</p>
+</li>
+<li>还有多少种系统被安装了rootkit了？</li>
+<li>这个rootkit是昨天晚上rootkit还是已经在多个系统上安装了很长时间了。</li>
+<li>这种rookit只是在安装在工作站或者这种重要的系统上面吗？</li>
+<li>我是先处理这台电脑上的问题还是先看看另外两台？</li>
+</ul></blockquote>
+<p>If OSSEC agents were installed on all these systems, instead of Local OSSEC installations,
+you would have been able to first check the OSSEC server before leaving your desk.</p>
+<p><em>如果我们在这些系统上面安装的是 客户端模式的OSSEC 而不是本地话的OSSEC 安装。那么你应该在离开桌子之前先查看OSSEC 服务器的分析</em></p>
+<p>This initial check would have allowed you to see if any alerts, such as those generated by the installation of a rootkit, were common across all systems with deployed agents.</p>
+<p><em>这些初始的判断可以帮助你去查看向这种rootkit安装产生的警告信息是否已经感染到了这些安装客户端的机器上面了</em></p>
+<p>This situational awareness provides a method to assist you in determining if an attack is
+targeting multiple machines or only one host.</p>
+<p><em>这种潜在的意识可以给你提供一种帮助你判断攻击者是攻击了一台机器还是许多机器</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/17.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/04.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

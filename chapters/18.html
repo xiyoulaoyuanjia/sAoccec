@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>第二章介绍 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">第二章介绍</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/11.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/15.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">第二章介绍</h1>
+<p>Introduction</p>
+<p>Simran Singh looks at her watch in disgust as she leaves the meeting room. “I told Bob this
+would happen,” she says calmly to Marty Feldman, her second in command and confidant.
+“But did they listen? Now I have to somehow try to install safeguards on all our systems
+with what’s left of our department’s budget.”</p>
+<p>Simran rose through the ranks of North America’s premier defense company due to her
+mix of business savvy, security knowledge, and track record for fixing impossible solutions.
+She is known throughout the company for never having to ask for more money than her
+department is allocated. Simran is also the most respected security mind in the company.
+During her first week, she was immediately dedicated as part of the incident handling team
+responsible for handling a companywide worm outbreak. Her superiors were so impressed
+by the way she operated, before long she was leading the teams of handlers for all the critical
+incidents in the organization. Within two years, she was head of the department and continued
+to prove herself by reducing enterprise-wide incidents by 66%. It was no surprise to her
+employees, peers, and senior managers when she was unanimously nominated for the recently
+vacated Chief Information Security Officer (CISO) position. Although Simran would prefer
+to receive the promotion under less hostile circumstances, she completely understands why
+out-going CISO Bob Rogers is no longer a viable option to continue in the role. Bob spends
+most of his time on the golf course instead of listening to the department warnings about
+difficult to protect network entry points. His failure to listen to his team is his downfall.
+The completely preventable breach, which resulted in the theft of top-secret ballistic missile
+guidance software, had cost the company its largest contract in 10 years and damaged its
+reputation with all existing customers.</p>
+<p>“What’s the plan, boss?” Marty asked Simran, already knowing that her mind was
+spinning and formulating a plan of attack. “Well, we used our entire budget on those
+redundant perimeter firewalls and intrusion prevention systems to help mitigate denial of
+service attacks,” mused Simran. “So we have a hard candy shell and a soft, chewy center?”
+laughed Marty. “And we’re all out of money for nougat!” exclaimed Simran. “What about
+that open source HIDS tool we saw on the SANS Institute webinar a few weeks back?”
+asked Marty. “Do you think that would do the trick?” Simran remembered that OSSEC
+sounded like a very capable and feature-rich HIDS, and had jotted some notes in her
+notebook to follow up on at a later time. “Good idea, Marty,” said Simran, thinking that
+this was the exact reason why you should always surround yourself with smart people.
+Smart people come up with creative ideas, and creative ideas must be considered. “Can
+you do some further investigation into this OSSEC application and get back to me by
+the end of the week?” Marty looked at his Smartphone and noted that it was alreadyInstallation • Chapter 2
+Thursday. Marty didn’t miss a beat and simply answered, “Can do, boss!” Marty knows
+that the end of this week is a hard deadline. He has worked for Simran long enough to
+know when something was important enough to be asked to pull an all-nighter. As
+Marty exited the elevator he thought, “If I can’t get this done by Friday, there might be
+another witch hunt upstairs next week.” Marty chuckled under his breath, “If I don’t play
+my cards right, then I might be promoted next.” Never had the thought of a promotion
+had such ominous overtones.</p>
+<p>“Boss! Boss!!” Marty yelled as he ran across the lobby toward Simran. “Have you been
+here all night?” asked Simran, already knowing the answer. Marty was unshaved, wearing
+yesterday’s clothes, and had enough caffeine in him that he could probably fly around the
+world a few times on his own power. “Of course I’ve been here all night!” raced Marty. His
+eyes were blinking faster than his lips were moving. Simran laughed and wondered if he was
+trying to use his eyes to explain his findings using Morse code at the same time he was talking
+to her. “I listened to the webcast again, went to the OSSEC Web site, downloaded the software,
+read the documentation, joined the mailing list, and then searched the mailing list archives,
+and you know what?” Marty said, his mouth starting to get dry, and seemingly waiting for a
+response. “What, Marty?” asked Simran. “Hey! It’s raining out?” asked Marty, staring past
+Simran. Simran snapped her fingers. “Stay on target, stay on target,” said Simran, knowing
+Marty would appreciate the Star Wars reference. “Ha! Sorry, running on fumes here!” exclaimed
+Marty. “There are quite a few OSSEC deployments out there and lots of people are using
+the deployments in an enterprise environment. Even some Telco-sized organizations have deployed
+OSSEC on thousands of machines and couldn’t be happier with it and they say that scalability
+isn’t a problem, which we are always worried about because we’re a huge company and
+we’re starting to grow and our number of systems is growing exponentially, am I right or what?
+Boy I could use a coffee.” Simran handed her latte to Marty. “Cheers!” exclaimed Marty,
+taking a huge gulp. “Will it work in a mixed environment?” asked Simran. “Totally! It works
+on Windows, Linux, Unix, Solaris, OS X, and a bunch of others!” yelled Marty, oblivious to
+the stares he was drawing from others in the lobby. “Indoor voice, Marty,” said Simran. “So
+you’ve already installed it on some test servers, I assume?” Marty took another chug of his
+newly acquired latte, “Fifty or so...wait...maybe sixty-five...no fifty-five...sixty, definitely sixty!”
+Simran couldn’t believe it. “That’s quite the deployment for a test bed.” Marty shrugged.
+“I had the time.” He laughed. “It only took about five minutes per machine, which gave me
+plenty of time to tunnel into my boxes at home and install it on them as well. I guess that
+makes the total count sixty-five, if we include my systems.” Simran smiled. “Marty, I think
+we’ve done it again. Let’s have these systems run over the weekend and I’ll draft a proposal
+to present on Monday. If all goes well,” winked Simran, “we’ll be deploying on our production
+servers in no time at all.”</p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/11.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/15.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

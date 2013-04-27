@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>OSSEC 简介 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#ossec">OSSEC 简介</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/10.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/13.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="ossec">OSSEC 简介</h1>
+<p><strong>Introducing OSSEC</strong></p>
+<p><strong><em>OSSEC 简介</em> </strong></p>
+<p>OSSEC is a scalable, multiplatform, open source HIDS with more than 5,000 downloads
+each month. </p>
+<p><em>ossec 是一个可扩展的、跨平台的、每个月超过5000的下载量的开源HIDS</em></p>
+<p>It has a powerful correlation and analysis engine, log analysis integration, ﬁle
+integrity checking, Windows registry monitoring, centralized policy enforcement, rootkit
+detection, real-time alerting, and active response. </p>
+<p><em>ossec具有强大的关联分析引擎、日志分析、文件完整性检测、windows注册表监控、集中的策略执行与实时的关联反应的特点。</em></p>
+<p>In addition to being deployed as an HIDS,it is commonly used strictly as a log analysis tool, monitoring and analyzing ﬁrewalls, IDSs,Web servers, and authentication logs. </p>
+<p><em>另外ossec通常作为HIDS被部署。这其中应用较多的是作为一种日志分析工具,监控与分析防火墙、IDS系列、web服务器、审计等的日志</em></p>
+<p>OSSEC runs on most operating systems, includingLinux, OpenBSD, FreeBSD, Mac OS X, Sun Solaris, and Microsoft Windows.</p>
+<p>_ossec可以运行在大多数操作系统上面,这其中包括linux、OpenBSD、FreeBSD、Mac OS X、Sun Solaris, and Microsoft Windows 等系统 _</p>
+<p>OSSEC is free software and will remain so in the future.</p>
+<p><em>OSSEC 不管是在现在或者将来都是自由软件</em></p>
+<p>You can redistribute it and/or modify it under the terms of the GNU General Public License (version 3) as published by the Free Software Foundation (FSF). </p>
+<p><em>你可以在FSF发布的GNU GPL3的协议条款下，自由的发布或者修改ossec</em>
+ISPs, universities, governments, and large corporate data centers are using OSSEC as their main HIDS solution.</p>
+<p><em>许多ISP,大学，机构，大量的公司数据中心应用OSSEC作为它们的主要的HIDS的解决方案</em></p>
+<p>The project has contributors from all over the globe and a quarterly release schedule
+for major ﬁxes, enhancements, and new features. </p>
+<p><em>该项目的代码贡献者来自世界各地，并且每一个季度都会发布一些重要的补丁、与新功能</em></p>
+<p>Bugs and feature requests can be sent through the OSSEC bug submission page (www.ossec.net/bugs/) or OSSEC mailing lists(www.ossec.net/main/support/). </p>
+<p><em>有关bug与功能的意见可以发送到OSSEC的bug提交页面(www.ossec.net/bugs/)或者OSSEC的邮件列表(www.ossec.net/main/support/)</em></p>
+<p>We will do our best to solve the submitted requests.</p>
+<p><em>我们会尽力去解决这些提交请求的。</em></p>
+<p>If you are interested in being a part of this project, the OSSEC team is always open to
+new contributors. </p>
+<p><em>当然如果你乐于称为我们组织的一员，OSSEC团队的大门向你时刻敞开着。</em></p>
+<p>The easiest way to get involved with OSSEC is by helping to test the
+product. </p>
+<p><em>另外，最简单容易的参与OSSEC的方式还是帮助我们测试这款软件</em></p>
+<p>The OSSEC team is always releasing beta versions and requires good quality control
+on every supported version before public release. </p>
+<p><em>OSSEC 团队总是会先发布beta测试版本并且在正式的版本发布之前总是会进行高质量的测试</em></p>
+<p>To get involved in the development side you must know C and be willing to take some time (actually quite some time) to understand how the internals work.</p>
+<p><em>如果你想参加到OSSEC的开发那么你必须要懂C语言并且乐于花费相当长的时间(事实上确实是相当长的时间)去学习网络方面的知识</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/10.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/13.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>基于主机的入侵检测 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">基于主机的入侵检测</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/01.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/09.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">基于主机的入侵检测</h1>
+<p><strong>Host-Based Intrusion Detection</strong></p>
+<p><strong><em>基于主机的入侵检测</em></strong></p>
+<p>An HIDS detects events on a server or workstation and can generate alerts similar to an
+NIDS. </p>
+<p><em>HIDS在服务器或者工作站产生的警告信息与NIDS相同</em></p>
+<p>An HIDS, however, is able to inspect the full communications stream.</p>
+<p><em>但是，HIDS去可以检测到网络上所有的会话数据包</em></p>
+<p>NIDS evasion techniques, such as fragmentation attacks or session splicing, do not apply because the HIDS is able to inspect the fully recombined session as it is presented to the operating system.</p>
+<p><em>由于片段储存、会话分割这些抵抗NIDS检测的技术是完全暴露在操作系统上的(会产生相应的日志信息),所以HIDS可以检测到完整的会话信息。也正是这样这些技术也就没有用武之地了。</em></p>
+<p>Encrypted communications can be monitored because your HIDS inspection can look at
+the traffic before it is encrypted. </p>
+<p><em>由于HIDS可以在会话加密之前就查看，所以加密会话也是可以监视到的。</em></p>
+<p>This means that HIDS signatures will still be able to match against common attacks and not be blinded by encryption.</p>
+<p><em>这也就意味着HIDS 的特征库可以有效的抵抗常见的攻击，即使是加密的。</em></p>
+<p>An HIDS is also capable of performing additional system level checks that only IDS software
+installed on a host machine can do, such as file integrity checking, registry monitoring, log
+analysis, rootkit detection, and active response.</p>
+<p><em>另外,HIDS 也可以实现向安装到主机的IDS才可以做的一样系统级别的检测，例如 完整性检测、监控注册表、日志分析、rootkit 检测、和联动机制</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/01.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/09.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>本地安装 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">本地安装</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/09.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/08.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">本地安装</h1>
+<p><strong>Local Installation</strong></p>
+<p><strong><em>本地安装</em></strong></p>
+<p>The Local installation type is recommended if you plan to install the OSSEC HIDS on
+only one system, such as a personal laptop, workstation, or single server. </p>
+<p><em>如果你计划将OSSEC HIDS 安装到单个系统中、例如个人电脑、工作站、或者单个服务器中，那么这种方式是推荐的安装方式</em></p>
+<p>However, if you are administering a network where you have more than one system to secure and monitor, you should consider using the Agent/Server Installation types.</p>
+<p><em>但是，如果你需要管理的网络中有多余1个的系统需要监控保证其安全。那么我们还是推荐你选择客户端/服务器这种安装方式</em></p>
+<p>A Local installation is easier to manage and can be customized for the system on which it is installed. </p>
+<p><em>本地安装这种方式便于管理与(被安装的)系统定制</em></p>
+<p>This installation also combines all the functionality of the OSSEC HIDS software,
+including agent and server functionality, on one system (Figure 1.9). </p>
+<p><em>这种安装方式可以包含了OSSEC HIDS 软件的客户端与服务器的所有功能在一个系统上面(如果1.9)</em></p>
+<p><img alt="" src="http://vdisk-thumb-3.wcdn.cn/frame.1024x768/data.vdisk.me/55890007/f4b9515be2ff7c6c862e90e69e5d983a9676955a?ip=1363191600,10.75.7.25&amp;ssig=lkmS04pScM&amp;Expires=1363190400&amp;KID=sae,l30zoo1wmz"/></p>
+<p>The only downside to a Local installation is if you decide later that you want to send your alerts to a central OSSEC server. </p>
+<p><em>本地化安装的唯一不好的地方就是当你安装后你又想把你的警告信息发送到OSSEC服务器上的时候会遇到一些麻烦</em></p>
+<p>To do so, you will have to uninstall the Local installation and run an Agent installation.</p>
+<p><em>如果你必须要这么做的化，那么你必须把本地化安装卸载了之后然后在重新已客户端的方式安装才行</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/09.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/08.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>基于网络的入侵检测 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">基于网络的入侵检测</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/07.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/14.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">基于网络的入侵检测</h1>
+<p><strong>Network Intrusion Detection </strong></p>
+<p><strong>基于网络的入侵检测     </strong></p>
+<p>When you hear the term “intrusion detection system,” or “IDS,” you probably think of an NIDS. </p>
+<p><em>当你听到ids或者入侵检测时 你第一反应应该时NIDS</em></p>
+<p>Network intrusion detection systems have become widely used over the past decade
+because of the impressive capability to provide a granular view of what is happening on your
+network. </p>
+<p><em>网络入侵检测得以在过去数十年广泛使用得益于从网络上你可以获得如颗粒般的详细(一帧帧的数据)</em></p>
+<p>The NIDS monitors network traffic using a network interface card (NIC) that is
+directly connected into your network. </p>
+<p><em>NIDS 可以使用直接连入网络的网卡监控网络通道</em></p>
+<p>The monitoring can be implemented by connecting your NIC to a HUB (Figure 1.1), which allows you to monitor all traffic that crosses the hub; </p>
+<p><em>如图1.1 那样 监控可以直接连接到网卡到hub上的，可以监控所有经过这个hub(集线器)的网络流量</em></p>
+<p>connecting to a SPAN port on a switch (Figure 1.2), which mirrors the traffic seen on
+another port of the switch; </p>
+<p><em>如图1.2 连接到路由器的SPAN端口，可以监控路由器另一个端口的流量</em></p>
+<p>or connecting to a network tap (Figure 1.3), which is an inline
+device that sits between two interfaces and mirrors the traffic that passes between devices.</p>
+<p><em>或者连接到可以连接到网络并且监控网络上的流量的网络tap上.</em></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6NHFZaWtUellwYjQ"/></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6d01Mbnl5dm8xUnM"/></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6d3ByYV9jZHJWbTg"/></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6SXJqZWg3QmUxblU"/></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6SzJBaUF6aHFKQVk"/></p>
+<p>NIDS is typically deployed to passively monitor a sensitive segment of your network,
+such as a DMZ off the firewall where your corporate Web servers are located (Figure 1.4)
+or monitoring connections to an internal database that holds your customer credit card
+information (Figure 1.5). </p>
+<p><em>一般来说NIDS都会部署在网络比较敏感的地方。例如防火墙连接网络的DMZ(如图1.4所示)或者 监控连接的存放客户信用卡信息等重要数据的数据库(如图1.5所示)</em></p>
+<p>This monitoring allows you to passively watch all communications between your server and the systems attempting to access it.</p>
+<p><em>这种监控使你可以被动的发现试图进入你系统与服务器的所有连接</em></p>
+<p>A signature or pattern is used to match specific events, such as an attack attempt, to traffic
+seen on your network. </p>
+<p><em>可以在网络流量上通过使用签名或者特征去寻找特殊的攻击企图</em></p>
+<p>If the traffic seen on your network matches your defined IDS signature,
+an alert is generated. </p>
+<p><em>如果通过网络的流量符合你定义的IDS特征,那么就生成了一条警告</em></p>
+<p>An alert can also trigger an action, such as logging the alert to a file, sending an email to someone with details of the alert, or following an action to address this alert,
+such as adding a firewall rule to block the traffic on another device.</p>
+<p><em>一条警告可以触发相应的行为。例如 把警告写入文件中，把警告的详细信息发送给某人。或者把产生这个警告的地址加入到防火墙的策略中阻止其通过。</em></p>
+<p>An NIDS is a powerful monitoring system for your network traffic, but there are some
+things to remember before deploying one:</p>
+<p><em>虽然NIDS是一个很强大的网络流量监控系统。但是在真正部署之前我们需要考虑如下几件事。</em></p>
+<blockquote>
+<ul><li>What do you do if well-known NIDS evasion techniques are used to bypass your
+   NIDS and signatures? Common NIDS evasion techniques such as fragmentation
+  attacks, session splicing, and even denial-of-service (DoS) attacks can be used to
+ bypass your NIDS, rendering it useless.</li>
+</ul><p>*<em>如果著名的抵抗NIDS检测的技术被用来绕过你的NIDS系统与特征，你将如何应对？例如常见的片段储存、会话分割(就是把会话数据放到多个数据包中发出) 、拒绝服务攻击等技术绕过你的NIDS的检测使得其失去作用。</em></p>
+<p>*What do you do if the communications between hosts are encrypted? With an NIDS
+   you are passively monitoring traffic and do not have the ability to look into an encrypted packet.</p>
+<ul><li><em>如果主机之间的会话被加密，你又如何应对？使用NIDS,你只能被动的检测网络流量。而且没有能力查看加密的数据包</em></li>
+</ul><p>*What do you do if an attack is used against your server, but it is encrypted? Your
+   carefully designed signatures would be unable to catch the attacks that your NIDS
+  is deployed to protect against.</p>
+<p>*<em>如果针对你的服务器的攻击是加密的，你有能怎么样？在你部署防患攻击的NIDS中精心设计的特征库将不能发现这样的攻击行为</em></p>
+</blockquote>
+<p>Tuning your NIDS to detect or account for these types of attacks will go a long way to
+help you focus your time on actual incidents instead of chasing down false positives. </p>
+<p><em>使用NIDS 去检测或者记录这种类型的攻击会花费你很多的时间在误报上而不是真正的危险事件</em></p>
+<p>Each NIDS must be tuned for the network segment it is monitoring. </p>
+<p><em>每一中NIDS系统都必须不断的调整去适应它正在检测的网络部分</em></p>
+<p>Remember that most NIDS solutions take a top-down approach to comparing traffic against your signature set. </p>
+<p><em>记住！大多数NIDS都是采取自上而下的方法把流量与你的特征集去比较</em></p>
+<p>Reducing  the number of rules in your deployed signature set reduces processor and memory usage on your NIDS solution. </p>
+<p><em>对于某一种NIDS方案在部署的特征库上减少规则的数量可以减少内存与处理器的使用率</em></p>
+<p>If the DMZ your NIDS is deployed on doesn’t contain any Web servers,
+you probably do not need to include signatures to detect Web server attacks.</p>
+<p><em>如果你部署的NIDS的DMZ 不包含任何web服务器,因为不用去检测web攻击所以你可以不包含任何特征库</em></p>
+<p>Attackers are becoming adept at sidestepping an NIDS, which is why an HIDS is now a
+necessary safeguard to supplement your current NIDS deployments. </p>
+<p><em>因为攻击者越来越会去逃避NIDS的检测，所以HIDS现在对于你的已经部署的NIDS系统是很有必要的一个安全补充</em></p>
+<p>Detecting these attacks at the final destination allow you to mitigate the previously mentioned NIDS headaches.</p>
+<p><em>在最后目的地(被攻击的电脑上)检测到这些攻击可以减轻之前提到NIDS的各种头疼的问题</em></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/07.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/14.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

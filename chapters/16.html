@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>一些需要特别考虑的事情 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">一些需要特别考虑的事情</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/15.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/05.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">一些需要特别考虑的事情</h1>
+<p><strong>Special Considerations</strong></p>
+<p><strong><em>一些需要特别考虑的事情</em></strong></p>
+<p>Every operating system has specific requirements that must be addressed before new software is installed. </p>
+<p><em>每一个操作系统在安装新软件之前都必须解决一些依赖问题</em></p>
+<p>We have identified known prerequisites for some of the more popular operating
+systems here.</p>
+<p><em>我们已经列出了一些常见的操作系统的依赖问题</em></p>
+<blockquote>
+<ul><li>Microsoft Windows</li>
+</ul><blockquote>
+<ul><li>
+<p>Before installation of the OSSEC HIDS software, no additional packages must be installed
+on a Microsoft Windows platform. </p>
+</li>
+<li>
+<p>对于windows系列，在安装OSSEC HIDS软件之前我们并不需要一些其它的软件包需要安装</p>
+</li>
+<li>
+<p>Please note that continued development and support are only available for:</p>
+</li>
+<li>
+<p>注意我们仅仅对于以下这些保持持续的开发与支持:</p>
+</li>
+</ul><blockquote>
+<ul><li>Microsoft Windows 2000 Workstation</li>
+<li>Microsoft Windows 2000 Server</li>
+<li>Microsoft Windows XP Home</li>
+<li>Microsoft Windows XP Professional</li>
+<li>Microsoft Windows 2003 Server</li>
+</ul></blockquote>
+<ul><li>
+<p>The OSSEC HIDS can only be installed as an Agent at this time because of the reliance
+on Unix sockets for the server portion. </p>
+</li>
+<li>
+<p><em>由于作为服务器要求的Unix套接子的稳定性的要求，目前OSSEC HIDS 仅仅可以当作 客户端安装这种方式(在windows上面安装)</em></p>
+</li>
+<li>
+<p>Local and Server type installations are currently being investigated.</p>
+</li>
+<li>
+<p><em>本地与服务器的安装方式目前正在调研研究中</em></p>
+</li>
+</ul></blockquote>
+<ul><li>Sun Solaris</li>
+</ul><blockquote>
+<ul><li>
+<p>Before beginning your OSSEC installation on a Sun Solaris platform, ensure that you have installed the SUNWxcu4 package. </p>
+</li>
+<li>
+<p><em>在Sun solaris 平台上面安装OSSEC之前必须确保系统已经安装了SUNWxcu4 包</em></p>
+</li>
+<li>
+<p>To check if the SUNWxcu4 package has previously been installed, execute the following from your Solaris command line:</p>
+</li>
+<li>
+<p><em>可以在你的Solaris命令行中运行如下的命令来检测是否已经安装了SUNWxcu4 包</em></p>
+</li>
+<li>
+<p>$ pkginfo | grep SUNWxcu4</p>
+</li>
+<li>
+<p>If you do not have the SUNWxcu4 package installed, execute the following command
+to install it:</p>
+</li>
+<li>
+<p><em>如果你没有安装SUNWxcu4 安装包。可以执行如下的命令安装</em></p>
+</li>
+<li>
+<p>$ pkgadd SUNWxcu4</p>
+</li>
+</ul></blockquote>
+<ul><li>Ubuntu Linux</li>
+</ul><blockquote>
+<ul><li>
+<p>If using an Ubuntu Linux version before release 7.04 you must ensure that the build-essential package is installed before you install the OSSEC HIDS software. </p>
+</li>
+<li>
+<p><em>如果你使用的ubuntu版本是7.04 之前的化那么一定要在安装OSSEC HIDS之前确定系统有没有安装build-essential软件包</em></p>
+</li>
+<li>
+<p>To check if the build-essential package has already been installed, execute the following from your Ubuntu command line:</p>
+</li>
+<li>
+<p><em>检测是否安装了build-essential 软件包可以执行如下的命令</em></p>
+</li>
+<li>
+<p>$ aptitude search build-essential</p>
+</li>
+<li>
+<p>If the build-essential package is installed, you will see an i beside the package: </p>
+</li>
+<li>
+<p><em>如果build-essential软件包已经安装了的话，可以看到如下的信息</em></p>
+</li>
+<li>
+<p>i build-essential - informational list of build-essential pack</p>
+</li>
+<li>
+<p>If you do not have the build-essential package installed, execute the following command
+to install it:</p>
+</li>
+<li>
+<p><em>当然如果你没有安装 build-essential软件包的话，可以执行如下的命令安装</em></p>
+</li>
+<li>
+<p>$ sudo apt-get install build-essential</p>
+</li>
+<li>
+<p>If using Ubuntu Linux version 7.04 or later you must ensure that the gcc and glibc-dev
+packages are installed before you install the OSSEC HIDS software. </p>
+</li>
+<li>
+<p><em>如果使用的ubuntu的系统是7.04或者之后的版本那么一定要确认系统是否已经安装了gcc 和 glibc-dev 软件包</em></p>
+</li>
+<li>
+<p>These packages are required to properly build the OSSEC HIDS software for your system. </p>
+</li>
+<li>
+<p><em>这些软件包对于安装OSSEC HIDS 软件都是必须需要的。</em></p>
+</li>
+<li>
+<p>If you do not have the gcc and glibc-dev packages installed, execute the following command to install the packages:</p>
+</li>
+<li>
+<p>如果你没有安装 gcc 和 glibc-dev 软件包，可以执行如下的命令安装：</p>
+</li>
+<li>
+<p>$ sudo apt-get install gcc glibc-dev</p>
+</li>
+</ul></blockquote>
+<ul><li>Mac OS X</li>
+</ul><blockquote>
+<ul><li>
+<p>Before you install the OSSEC HIDS software on a system running Mac OS X, you must
+ensure that the Xcode development package is installed to compile the OSSEC HIDS software.</p>
+</li>
+<li>
+<p><em>在Mac OS系统上面安装 OSSEC HIDS 需要确保系统装了可以编译OSSEC HIDS的 Xcode 开发工具</em></p>
+</li>
+<li>
+<p>This package can be found on your Mac OS X installation media or at the Apple Developer Connection site.</p>
+</li>
+<li>
+<p><em>你可以在Mac OS X的安装中心或者连接到 苹果的开发网站查看</em></p>
+</li>
+<li>
+<p>To install Xcode, you must:</p>
+<blockquote>
+<ul><li>Download Xcode from the Apple Developer Connection tool site located at
+   http://developer.apple.com/tools/.</li>
+<li>Run the installer to install the packages you need. </li>
+</ul></blockquote>
+</li>
+<li>
+<p><em>安装Xcode 按如下步骤:</em></p>
+<blockquote>
+<ul><li><em>在苹果的开发者工具集 http://developer.apple.com/tools/ 网站里下载 Xcode</em></li>
+<li><em>运行安装执行文件</em></li>
+</ul></blockquote>
+</li>
+<li>
+<p>For the OSSEC HIDS software, at a minimum, you need the Developer Tools Software package, but feel free to install any of the other useful packages contained within the Xcode installer.</p>
+</li>
+<li>
+<p><em>安装OSSEC HIDS 软件的最低需要 开发工具包，安装Xcode可以包含很多非常有用的软件</em></p>
+</li>
+</ul></blockquote>
+</blockquote></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/15.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/05.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

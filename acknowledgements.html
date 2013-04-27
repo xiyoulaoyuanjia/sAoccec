@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Organization of the Book / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+                <section class="content">
+                    
+    <div class="fourteen columns offset-by-one">
+        <div><h1 id="organization-of-the-book">Organization of the Book</h1>
+<p><strong>Organization of the Book</strong></p>
+<p><strong>Solutions In This Chapter</strong></p>
+<p>At the beginning of each chapter a bulleted list of the major topics is provided. This provides
+a high-level overview of the areas covered within the chapter.</p>
+<p><strong>Summary</strong></p>
+<p>This section summarizes the most important Solutions covered in the chapter. A brief recap
+of the information covered within the chapter is provided to give you a chance to go back
+and review any topic that you may not have found clear the first time around.</p>
+<p><strong>Solutions Fast Track</strong></p>
+<p>The Solutions Fast Track provides an outline of each topic covered within the chapter. You
+can use this section as a quick reference guide to quickly check which important facts are
+covered in each chapter.</p>
+<p><strong>Frequently Asked Questions</strong></p>
+<p>At the end of each chapter a Frequently Asked Questions, or FAQ, section lists the most
+common questions associated with the concepts covered in the chapter. These questions
+were derived from questions posed to the OSSEC mailing list, asked at conferences, or
+questions the authors felt might be asked in the future.</p>
+<p><strong>Chapter Descriptions</strong></p>
+<p>Here is a brief overview of the information covered in each chapter:</p>
+<blockquote>
+<ul><li>Chapter 1: Getting Started With OSSEC</li>
+</ul></blockquote>
+<p>This chapter provides an overview of the features of OSSEC including commonly used
+terminology, pre-install preparation, and deployment considerations.</p>
+<blockquote>
+<ul><li>Chapter 2: Installation</li>
+</ul></blockquote>
+<p>This chapter walks through the installation process for the “local”, “agent”, and “server”
+install types on some of the most popular operating systems available. Techniques to auto-
+mate multiple agent installations are also covered in depth to ensure a smooth deployment
+across multiple systems in a large environment.</p>
+<blockquote>
+<ul><li>Chapter 3: Configuration</li>
+</ul></blockquote>
+<p>This chapter discusses the post-install configuration of OSSEC. Within this chapter you will
+learn the basic configuration options for your install type and learn how to monitor log files,
+receive remote messages, configure email notification, and configure alert levels.</p>
+<blockquote>
+<ul><li>Chapter 4: Working With Rules</li>
+</ul></blockquote>
+<p>This chapter shows you how to extract key information from logs using decoders and how
+you can leverage rules to alert you of strange occurrences on your network. It includes
+examples on how to parse atomic and composite rules, how to keep state between messages,
+how to remove false positives, and how to tune OSSEC appropriately for your network.</p>
+<blockquote>
+<ul><li>Chapter 5: System Integrity</li>
+</ul></blockquote>
+<p><strong>Check and Rootkit Detection</strong></p>
+<p>This chapter explains the system integrity check features of OSSEC, including monitoring
+binary executable files, system configuration files, and the Microsoft Windows registry.</p>
+<blockquote>
+<ul><li>Chapter 6: Active Response Configuration</li>
+</ul></blockquote>
+<p>Active response allows you to automatically execute “commands” or responses when a specific
+event, or a set of events, occur. On the OSSEC HIDS, active response is very scalable, allowing
+you to execute commands on the agent or on the server side. This chapter explains how to
+configure the active response actions you want and how to bind the actions to specific rules
+and sequence of events.</p>
+<blockquote>
+<ul><li>Chapter 7: Using the OSSEC Web User Interface</li>
+</ul></blockquote>
+<p>This chapter explains how to install, configure, and use the community-developed, open
+source web interface available for OSSEC.</p>
+<p><strong>Epilogue</strong></p>
+<p>This chapter concludes the story carried throughout the book and provides some final
+thoughts from the authors.</p>
+<p><strong>Appendix A: Log Data Mining</strong></p>
+<p>Dr. Anton Chuvakin, Chief Log Evangalist, LogLogic Inc.
+This chapter is devoted to log mining or log knowledge discovery - a different type of
+log analysis, which does not rely on knowing what to look for. This takes the “high art” of log
+analysis to the next level by breaking the dependence on the lists of strings or patterns to
+look for in the logs.</p>
+<p><strong>Appendix B:</strong></p>
+<p>Implementing a Successful OSSEC Policy</p>
+<p>Michael J. Santarcangelo, II, Founder and Chief Security Catalyst, The Michaelangelo Group.
+To be successful in implementing OSSEC in your organization, you need to have an
+effective policy to guide and support your actions. This appendix will explain the steps you
+need to take in order to quickly and successfully develop and implement your policy.</p>
+<p><strong>Appendix C: Rootkit Detection Using Host-Based IDS</strong></p>
+<p>By Peter Giannoulis and Adam Winnington, Information Security Consultants, Access 2 Networks
+This appendix chapter provides a brief history of rootkits and how host-based IDS solutions
+can assist in their prevention and detection. The positives and negatives of HIDS technologies
+are also discussed.</p>
+<p><strong>Appendix D: Using the OSSEC VMware Environment</strong></p>
+<p>Included with the book is a DVD that contains a pre-configured Ubuntu 7.10 server running
+the OSSEC HIDS. The OSSEC HIDS VMware Guest image allows you to implement what
+you have learned in a sandbox-style environment. This appendix explains how the OSSEC
+HIDS VMware Guest image was create and explains how you can create a OSSEC HIDS
+VMware Guest image of your own.</p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/preface.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/06.html">Next &raquo;</a>
+            
+        </div>
+    </div>
+
+                </section>
+            
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

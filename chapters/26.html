@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Managing Agents / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/"></a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#managing-agents">Managing Agents</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/21.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/25.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="managing-agents">Managing Agents</h1>
+<p>Managing Agents</p>
+<p>Before moving on to another install type, let’s review the key management in the OSSEC
+HIDS. Agents must be able to identify themselves to the server, and the server must be able
+to validate the identity of the agent. This ensures that illicit messages aren’t processed by the
+server when sent from non-agent hosts.</p>
+<p>The server-agent traffic is encrypted and validated using pre-shared keys. These keys
+must be generated on the server and then imported on the agent side. The procedure is the
+same regardless of the agent platform. All agent key management is done using the manage_agents
+utility in the OSSEC HIDS bin directory.</p>
+<p>You must create a key for each agent by adding the agent using the manage_agents utility.
+Run the utility and then choose Add an agent by entering A.</p>
+<p>图</p>
+<p>You are prompted for host details and an identifier for the agent. The IP address, not the
+hostname, of the agent host must be provided. The ID can be any number you choose, but it
+must be numeric. The name can be any identifying text that is meaningful to you, without
+spaces, but typically it makes most sense to use the hostname.</p>
+<p>图+差很多</p>
+<p>Repeat this procedure for each agent you must install. After you are done creating keys,
+restart the OSSEC HIDS service, using /var/ossec/bin/ossec-control, so that the OSSEC
+HIDS can read the updated keys and permitted agent IP addresses. Failure to restart the
+OSSEC HIDS server might result in connection failures for the agents. After the OSSEC
+HIDS software is installed on the agents, you will return to the server to retrieve the keys
+for each agent using the same manage_agents utility.</p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/21.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/25.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href=""></a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+
+        
+    </body>
+</html>

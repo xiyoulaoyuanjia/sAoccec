@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>注册表监控 / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#_1">注册表监控</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/16.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/17.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="_1">注册表监控</h1>
+<p><strong>Registry Monitoring</strong></p>
+<p><strong><em>注册表监控</em></strong></p>
+<p>The system registry is a directory listing of all hardware and software settings, operating system
+conﬁgurations, and users, groups, and preferences on a Microsoft Windows system. </p>
+<p><em>系统注册表是一个用来存放软硬件的设置、系统配置、windows系统的用户、组和个性化设置的目录</em></p>
+<p>Changes made by users and administrators to the system are recorded in the system registry keys so that the changes are saved when the user logs out or the system is rebooted. </p>
+<p><em>因为用户或者系统管理员对系统所做的更改都会记录到注册表的key中,所以当用户或系统管理员注销或者重启的时候这些更改都会被保存下来。</em></p>
+<p>The registry also allows you to look at how the system kernel interacts with hardware and software.</p>
+<p><em>当然注册表也可以帮你观察系统内核是如何与软硬件联系的</em></p>
+<p>An HIDS can watch for these changes to important registry keys to ensure that a user
+or application isn’t installing a new or modifying an existing program with malicious intent.</p>
+<p><em>HIDS可以用来观察那些重要的注册表的key的改变，以此来确保用户没有恶意的安装或者修改软件</em></p>
+<p>For example, a password management utility can be replaced with a modiﬁed executable
+and the registry key changed to point to the malicious copy (Figure 1.7).</p>
+<p><em>例如：注册表的key值的改变可以反应电脑的密码管理工具被可执行程序替换这个恶意的行为</em></p>
+<p><img alt="" src="https://drive.google.com/uc?export=view&amp;id=0B_kkWa4qHwL6d2Z2dVJwTzJxaW8"/></p></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/16.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/17.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

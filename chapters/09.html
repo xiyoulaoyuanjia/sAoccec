@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>考虑部署你的OSSEC / Learn Vimscript the Hard Way</title>
+        <meta name="description" content="">
+        <meta name="author" content="Steve Losh">
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link href="/static/styles/skeleton/base.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/skeleton.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/skeleton/layout.css" rel="stylesheet" type="text/css" />
+
+        <link href="/static/styles/tango.css" rel="stylesheet" type="text/css" />
+        <link href="/static/styles/style.less" rel="stylesheet/less" type="text/css" />
+
+        <script type="text/javascript" src="/static/scripts/less.js"></script>
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="sixteen columns">
+                <h1><a href="/">基于主机的入侵检测系统ossec入门指南</a></h1>
+            </header>
+
+            
+    <section class="nav three columns">
+        
+<ul><li><a href="#ossec">考虑部署你的OSSEC</a></li>
+</ul>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/03.html">&laquo; Prev</a>
+            
+            
+                <a class="next" href="/chapters/10.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+    <section class="content twelve columns offset-by-one">
+        <div> 
+<h1 id="ossec">考虑部署你的OSSEC</h1>
+<p><strong>Planning Your Deployment</strong></p>
+<p><strong><em>考虑部署你的OSSEC</em></strong></p>
+<p>Before starting your OSSEC HIDS installation you must know the differences between the
+installation types and know how plan your deployment. </p>
+<p><em>在考虑开始你的OSSEC的安装之前你必须先知道不同的安装类型的区别并且知道如何部署</em></p>
+<p>The OSSEC HIDS can be installed on one system, on multiple systems to provide protection for a large network, or on a few systems with the plan to scale the deployment later to secure your entire organization.</p>
+<p><em>OSSEC HIDS可以安装到一个系统上去为网络上大量的其它多个系统提供保护，也可以安装到几个系统上去为整个组织提供安全保护</em></p>
+<p>We will discuss three OSSEC installation types to help you understand how to deploy
+the OSSEC HIDS in your environment:</p>
+<blockquote>
+<ul><li>Local installation: Used to secure and protect a single host</li>
+<li>Agent installation: Used to secure and protect hosts while reporting back to a
+   central OSSEC server</li>
+<li>Server installation: Used to aggregate information from deployed OSSEC agents
+   and collect syslog events from third-party devices</li>
+</ul></blockquote>
+<p><em>下来我们将要讨论OSSEC的各种不同的安装类型的区别用来帮你将它部署到你的环境中：</em></p>
+<blockquote>
+<ul><li>本地安装:用来保护单个主机的安全</li>
+<li>客户端安装:用来保护主机的全员并将获取的报告数据发回远端的OSSEC服务器</li>
+<li>服务器安装:用于收集汇总分析来自各个部署的OSSEC客户端与第三方设备收集的Syslog日志信息</li>
+</ul></blockquote></div>
+
+        <div class="prevnext">
+            
+                <a class="prev" href="/chapters/03.html">&laquo; Previous</a>
+            
+            
+                <a class="next" href="/chapters/10.html">Next &raquo;</a>
+            
+        </div>
+    </section>
+
+
+            <footer class="sixteen columns">
+                Made by <a href="http://www.xiyoulaoyuanjia.com">xiyoulaoyuanjia</a>.
+
+                <a href="/license.html">License</a>.
+
+                Built with
+                <a href="http://bitbucket.org/sjl/bookmarkdown/">Bookmarkdown</a>.
+            </footer>
+        </div>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-15328874-8']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
+            </script>
+        
+
+        
+            <script type="text/javascript">
+                var _gauges = _gauges || [];
+                (function() {
+                 var t   = document.createElement('script');
+                 t.type  = 'text/javascript';
+                 t.async = true;
+                 t.id    = 'gauges-tracker';
+                 t.setAttribute('data-site-id', '4e8f83b7f5a1f546e200000d');
+                 t.src = '//secure.gaug.es/track.js';
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(t, s);
+                 })();
+             </script>
+        
+    </body>
+</html>

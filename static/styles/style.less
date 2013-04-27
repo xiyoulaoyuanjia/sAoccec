@@ -1,0 +1,137 @@
+html {
+    overflow-y: scroll;
+}
+html, body {
+    font: normal 16px/22px 'Palatino', 'Georgia', sans-serif;
+    color: #333;
+
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    header {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        
+        h1 {
+            font-size: 42px;
+
+            a {
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    footer {
+        margin-top: 30px;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 100px;
+    }
+    .toc {
+        ol {
+            margin-left: 0;
+
+            li {
+                list-style: none;
+            }
+        }
+    }
+    .nav {
+        margin-top: 18px;
+
+        ul {
+            list-style-type: none;
+            font: inherit;
+        }
+        li {
+            margin-left: 0px;
+        }
+    }
+    .nav > ul > li > a {
+        text-decoration: none;
+        margin-bottom: 12px;
+        font-weight: bold;
+        font-size: 18px;
+        display: block;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .nav > ul > li > ul ul {
+        margin-left: 16px;
+    }
+    .nav > ul > li > ul {
+        margin-left: 0px;
+    }
+    .prevnext {
+        .next {
+            display: block;
+            float: right;
+        }
+    }
+    pre, code {
+        font: normal 14px Menlo, Monaco, Consolas, monospace;
+        background-color: #fafafa;
+        border: 1px solid #aaa;
+    }
+    code {
+        padding: 0px 4px;
+    }
+    pre {
+        margin-bottom: 22px;
+        padding: 6px 4px;
+
+        code {
+            border: none;
+            padding: 0;
+        }
+    }
+    ul {
+        list-style-type: circle;
+        
+        li {
+            margin-left: 36px;
+            line-height: 22px;
+        }
+    }
+}
+
+body.splash {
+    section.toc {
+        margin-top: 30px;
+
+        ol {
+            margin-left: 26px;
+
+            &.pre-toc {
+                margin-bottom: 0px;
+
+                li {
+                    list-style-type: lower-roman;
+                }
+            }
+            &.toc {
+                li {
+                    list-style-type: decimal;
+                }
+            }
+        }
+    }
+}
